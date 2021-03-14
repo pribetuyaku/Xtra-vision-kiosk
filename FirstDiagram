@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-14T13:19:56.807Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="K5YN15tHlEqiDXGJpHUe" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-14T13:20:46.453Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="HLWJgNWCxBckLKOzeFzi" version="14.4.8" type="github">
   <diagram id="Eca-YmKfq-4KuSeTxpPX" name="Page-1">
-    <mxGraphModel dx="1304" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2770" dy="1125" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -635,6 +635,24 @@
           <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
             <mxPoint x="-137.5" y="-61.000000000000014" as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-183" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;AVAILABLE MOVIES&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
+          <mxGeometry x="2896.5" y="260.5" width="190" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-184" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2750" y="286" as="sourcePoint" />
+            <mxPoint x="2886.5" y="286.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-185" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-154">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="2183.5" y="415.5" as="sourcePoint" />
+            <mxPoint x="2320" y="416" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-186" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;AVAILABLE MOVIES&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
+          <mxGeometry x="2330" y="390" width="190" height="49" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
