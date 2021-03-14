@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-14T12:59:40.681Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="mruBK5qE1p-f5QuYmiGI" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-14T13:07:47.539Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="dw7bopopuLDx2RaRX_TZ" version="14.4.8" type="github">
   <diagram id="Eca-YmKfq-4KuSeTxpPX" name="Page-1">
-    <mxGraphModel dx="1847" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1583" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -471,6 +471,28 @@
               <mxPoint x="1500" y="420" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-146" value="" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="1510" y="90" width="616" height="370" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-147" value="&lt;span style=&quot;font-size: 17px&quot;&gt;UNLIMITED MOVIES&lt;br&gt;&lt;/span&gt;" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;strokeWidth=2;fontColor=000000;verticalAlign=top" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
+          <mxGeometry width="180" height="30" relative="1" as="geometry">
+            <mxPoint x="20" y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-150" value="&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- No more late fees&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Keep as long as you want&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Rent as often as you want*&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- €8.99 a month&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;* For €8.99 a month you can rent as many times as you like with no late fees! Simply return the movies to any Xtra-vision Xpress vending machine and rent again, easy as that! You can hold two movies at any time and rent as many times as you like. You can also cancel the service at any Xtra-vision Xpress machine.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
+          <mxGeometry x="12" y="197.44444444444443" width="578" height="96.9071111111111" as="geometry">
+            <mxPoint x="10" y="-100" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-152" value="START YOUR&lt;br&gt;UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#00CC00;strokeColor=#00CC00;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
+          <mxGeometry x="30" y="280" width="150" height="41.33" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-153" value="CANCEL YOUR&lt;br&gt;UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#D8312B;strokeColor=#D8312B;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
+          <mxGeometry x="234" y="280" width="150" height="41.33" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-154" value="RENT WITH&lt;br&gt;UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#007FFF;strokeColor=#007FFF;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
+          <mxGeometry x="440" y="280" width="150" height="41.33" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
