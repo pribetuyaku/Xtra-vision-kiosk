@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-03-14T13:20:46.453Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="HLWJgNWCxBckLKOzeFzi" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-15T13:13:50.282Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="F87VGDTIBkvQN_HiGbgU" version="14.4.8" type="github">
   <diagram id="Eca-YmKfq-4KuSeTxpPX" name="Page-1">
-    <mxGraphModel dx="2770" dy="1125" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1304" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -374,13 +374,14 @@
         <mxCell id="laQGCkyz7igp9S0ip7VO-93" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
           <mxGeometry x="1551" y="1637" width="12" height="12" as="geometry" />
         </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-94">
+        <mxCell id="laQGCkyz7igp9S0ip7VO-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="1630" y="1230" as="targetPoint" />
+            <mxPoint x="1630" y="1190" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-94" value="&lt;span style=&quot;font-size: 18px&quot;&gt;IF IT IS THE FIRST RENTAL, THE USER&lt;br&gt;CAN RENT MAX 2 DISK, OTHERWISE&amp;nbsp;&lt;br&gt;THEY CAN SELECT 4 DISKS&lt;br&gt;&lt;/span&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="1450" y="1071" width="360" height="89" as="geometry" />
+        <mxCell id="laQGCkyz7igp9S0ip7VO-94" value="&lt;span style=&quot;font-size: 18px&quot;&gt;IF IT IS THE FIRST RENTAL, THE USER&lt;br&gt;CAN RENT MAX 2 DISK, OTHERWISE&amp;nbsp;&lt;br&gt;THEY CAN SELECT 4 DISKS OR IF IT IS&lt;br&gt;UNLIMITED PLAN THE USER ARE FREE&lt;br&gt;TO RENT&amp;nbsp;ANY QUANTITY OF MOVIES&lt;br&gt;&lt;/span&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
+          <mxGeometry x="1450" y="1060" width="360" height="120" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-98" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
           <mxGeometry x="1464" y="1517" width="12" height="12" as="geometry" />
@@ -495,7 +496,7 @@
           <mxGeometry x="440" y="280" width="150" height="41.33" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-155" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
-          <mxGeometry x="1473" y="540" width="333" height="180" as="geometry" />
+          <mxGeometry x="1473" y="560" width="333" height="180" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-156" value="&lt;b&gt;UNLIMETED MOVIE PLAN&lt;/b&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox;fillColor=#36B37E;strokeColor=none;html=1;fontSize=14;fontStyle=0;labelPosition=right;align=left;spacingLeft=20" vertex="1" parent="laQGCkyz7igp9S0ip7VO-155">
           <mxGeometry width="14" height="14" relative="1" as="geometry">
@@ -537,7 +538,7 @@
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-152">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1615" y="530" as="targetPoint" />
+            <mxPoint x="1615" y="550" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-163" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
@@ -653,6 +654,9 @@
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-186" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;AVAILABLE MOVIES&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
           <mxGeometry x="2330" y="390" width="190" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-187" value="&lt;span style=&quot;font-size: 18px&quot;&gt;REGISTER THE CARD AND&lt;br&gt;USER DETAILS&lt;/span&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
+          <mxGeometry x="1497.5" y="480" width="245" height="49" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
