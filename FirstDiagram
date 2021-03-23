@@ -1,50 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2021-03-18T13:22:11.768Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="oLVcPbjOoxbWRlzerjFr" version="14.4.8" type="github">
+<mxfile host="app.diagrams.net" modified="2021-03-23T14:43:09.616Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36" etag="1cPfSfR7SlyjWxIQY1uS" version="14.4.8" type="github">
   <diagram id="Eca-YmKfq-4KuSeTxpPX" name="Page-1">
-    <mxGraphModel dx="1476" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1941" dy="450" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="FuczjbSwI_togRDMLbyT-15" value="LOGIN" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="940" y="620" width="410" height="310" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.002;entryY=0.438;entryDx=0;entryDy=0;entryPerimeter=0;" parent="FuczjbSwI_togRDMLbyT-15" source="FuczjbSwI_togRDMLbyT-25" target="FuczjbSwI_togRDMLbyT-105" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.171;entryY=-0.012;entryDx=0;entryDy=0;entryPerimeter=0;" parent="FuczjbSwI_togRDMLbyT-15" source="FuczjbSwI_togRDMLbyT-22" target="FuczjbSwI_togRDMLbyT-87" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-16" value="E-MAIL" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-15" vertex="1">
-          <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="70" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-17" value="jsmith@gmail.com" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-15" vertex="1">
-          <mxGeometry width="370" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="90" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-19" value="PASSWORD" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-15" vertex="1">
-          <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="150" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-20" value="********" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-15" vertex="1">
-          <mxGeometry width="370" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="170" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-22" value="NEW USER? CLICK HERE" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-15" vertex="1">
-          <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="249" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-25" value="LOGIN" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" parent="FuczjbSwI_togRDMLbyT-15" vertex="1">
-          <mxGeometry x="1" y="1" width="101" height="33" relative="1" as="geometry">
-            <mxPoint x="-121.5" y="-70" as="offset" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-31" value="" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;spacingTop=30;" parent="1" vertex="1">
-          <mxGeometry x="530" y="620" width="320" height="210" as="geometry" />
+          <mxGeometry x="530" y="640" width="320" height="210" as="geometry" />
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-34" value="WELCOME TO XTRA-VISION&lt;br&gt;RENTAL KIOSK" style="shape=mxgraph.azure.azure_alert;fillColor=#FFAB00;strokeColor=none;fontColor=#172B4C;fontSize=18;fontStyle=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;html=1;spacingLeft=5" parent="FuczjbSwI_togRDMLbyT-31" vertex="1">
           <mxGeometry width="20" height="20" relative="1" as="geometry">
@@ -52,221 +13,105 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-35" value="Please select your option:" style="dashed=0;html=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-31" vertex="1">
-          <mxGeometry width="290" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="75" as="offset" />
+          <mxGeometry width="220" height="33" relative="1" as="geometry">
+            <mxPoint x="20" y="79" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-75" value="First Rental" style="rounded=1;fillColor=#253858;strokeColor=none;html=1;fontColor=#ffffff;align=left;fontSize=12;spacingLeft=10;shadow=0;dashed=0;" parent="FuczjbSwI_togRDMLbyT-31" vertex="1">
-          <mxGeometry x="20" y="110" width="100" height="33" as="geometry" />
+        <mxCell id="laQGCkyz7igp9S0ip7VO-195" value="RENT" style="rounded=1;fillColor=#0057D8;align=center;strokeColor=none;html=1;fontColor=#ffffff;fontSize=12;shadow=0;dashed=0;" vertex="1" parent="FuczjbSwI_togRDMLbyT-31">
+          <mxGeometry x="40" y="140" width="86" height="33" as="geometry" />
         </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-76" value="" style="shape=triangle;direction=south;fillColor=#ffffff;strokeColor=none;html=1" parent="FuczjbSwI_togRDMLbyT-75" vertex="1">
-          <mxGeometry x="1" y="0.5" width="12" height="6" relative="1" as="geometry">
-            <mxPoint x="-20" y="-3" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-77" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" parent="FuczjbSwI_togRDMLbyT-31" vertex="1">
-          <mxGeometry x="20" y="146" width="110" height="44" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-78" value="Customer" style="rounded=0;fillColor=#F4F5F7;strokeColor=none;shadow=0;html=1;align=left;fontSize=12;spacingLeft=10;fontColor=#253858;resizeWidth=1" parent="FuczjbSwI_togRDMLbyT-77" vertex="1">
-          <mxGeometry width="110" height="33" relative="1" as="geometry">
-            <mxPoint y="6" as="offset" />
-          </mxGeometry>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-197" value="RETURN" style="rounded=1;fillColor=#0057D8;align=center;strokeColor=none;html=1;fontColor=#ffffff;fontSize=12;shadow=0;dashed=0;" vertex="1" parent="FuczjbSwI_togRDMLbyT-31">
+          <mxGeometry x="190" y="140" width="86" height="33" as="geometry" />
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-39" value="&lt;font style=&quot;font-size: 18px&quot;&gt;FIRST STEP&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" parent="1" vertex="1">
-          <mxGeometry x="40" y="20" width="126" height="20" as="geometry" />
+          <mxGeometry x="-160" y="350" width="126" height="20" as="geometry" />
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-40" value="" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="40" y="60" width="616" height="450" as="geometry" />
+          <mxGeometry x="-160" y="390" width="616" height="450" as="geometry" />
         </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-41" value="&lt;span style=&quot;font-size: 17px&quot;&gt;HOW IT WORKS&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;Rules&lt;/font&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;Special Offers&lt;/font&gt;&lt;/div&gt;" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;strokeWidth=2;fontColor=000000;verticalAlign=top" parent="FuczjbSwI_togRDMLbyT-40" vertex="1">
+        <mxCell id="FuczjbSwI_togRDMLbyT-41" value="&lt;span style=&quot;font-size: 17px&quot;&gt;HOW IT WORKS&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;Rules&lt;/font&gt;&lt;/div&gt;" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;strokeWidth=2;fontColor=000000;verticalAlign=top" parent="FuczjbSwI_togRDMLbyT-40" vertex="1">
           <mxGeometry width="110" height="120" relative="1" as="geometry">
-            <mxPoint x="20" y="20" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-42" value="" style="shape=line;direction=south;strokeColor=#E0E1E6;strokeWidth=1" parent="FuczjbSwI_togRDMLbyT-40" vertex="1">
-          <mxGeometry width="10" height="330" relative="1" as="geometry">
-            <mxPoint x="150" y="60" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-43" value="Rules" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;fontColor=000000" parent="FuczjbSwI_togRDMLbyT-40" vertex="1">
-          <mxGeometry width="300" height="20" relative="1" as="geometry">
-            <mxPoint x="190" y="60" as="offset" />
+            <mxPoint x="30" y="20" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-57" value="&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;- No membership is required, just a credit or debit card.&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;- While your first transaction is limited to two discs, after that you can rent up to four discs at one time.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- &lt;/span&gt;&lt;font style=&quot;font-size: 12px&quot;&gt;For each additional day you keep it past 8pm, you’ll be charged €1.50. If you hold onto your disc for the maximum rental period – 10 days, you will be charged a maximum fee of €15 and the disc is yours to keep.&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;- When you first use the service we will give you your first disc rental free when you use the code FREE123.&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;- The charge is processed as soon as you rent your disc. Any additional charges are charged when a disc is returned.&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot; style=&quot;font-size: 12px&quot;&gt;- You can contact us at help@xvxpress.com or call us on 1890 789 789&lt;/font&gt;&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" parent="FuczjbSwI_togRDMLbyT-40" vertex="1">
-          <mxGeometry x="180" y="280" width="390" height="117.85714285714285" as="geometry">
+          <mxGeometry x="20" y="260" width="550" height="137.86" as="geometry">
             <mxPoint x="10" y="-100" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-67" value="NEXT" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=#0057D8;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;" parent="FuczjbSwI_togRDMLbyT-40" vertex="1">
           <mxGeometry x="493" y="390" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-68" value="" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="720" y="60" width="616" height="450" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-69" value="&lt;span style=&quot;font-size: 17px&quot;&gt;HOW IT WORKS&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;Rules&lt;/font&gt;&lt;/div&gt;&lt;br&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#0057d8&quot;&gt;Special Offers&lt;/font&gt;&lt;/div&gt;" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;strokeWidth=2;fontColor=000000;verticalAlign=top" parent="FuczjbSwI_togRDMLbyT-68" vertex="1">
-          <mxGeometry width="110" height="120" relative="1" as="geometry">
-            <mxPoint x="20" y="20" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-70" value="" style="shape=line;direction=south;strokeColor=#E0E1E6;strokeWidth=1" parent="FuczjbSwI_togRDMLbyT-68" vertex="1">
-          <mxGeometry width="10" height="330" relative="1" as="geometry">
-            <mxPoint x="150" y="60" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-71" value="Special Offers" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;fontColor=000000" parent="FuczjbSwI_togRDMLbyT-68" vertex="1">
-          <mxGeometry width="300" height="20" relative="1" as="geometry">
-            <mxPoint x="190" y="60" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-72" value="&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- First Rental Free - use code FREE123&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Rent 1 movie for €2.99 and keep it for 1 night.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Rent 2 movies for €2.99 each and keep them for 2 nights.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Rent 3 movies for €2.99 each and keep them for 3 nights.&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- The charge is processed as soon as you rent your disc. Any additional charges are charged when a disc is returned.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- For each additional day you keep it past 8pm, you’ll be charged €1.50. If you hold onto your disc for the maximum rental period – 10 days, you will be charged a maximum fee of €15 and the disc is yours to keep.&lt;/span&gt;&lt;/font&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Unlimited Movies - All you can watch for only €8.99 a month!&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" parent="FuczjbSwI_togRDMLbyT-68" vertex="1">
-          <mxGeometry x="180" y="270" width="390" height="87.86" as="geometry">
-            <mxPoint x="10" y="-100" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-73" value="NEXT" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=#0057D8;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;" parent="FuczjbSwI_togRDMLbyT-68" vertex="1">
-          <mxGeometry x="493" y="390" width="80" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-106" value="UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#D8312B;strokeColor=#D8312B;" vertex="1" parent="FuczjbSwI_togRDMLbyT-68">
-          <mxGeometry x="190" y="390" width="130" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="FuczjbSwI_togRDMLbyT-67" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="573" y="610" as="targetPoint" />
+            <mxPoint x="520" y="795" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="FuczjbSwI_togRDMLbyT-73" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="770" y="600" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="1253" y="550" />
-              <mxPoint x="770" y="550" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-85" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="FuczjbSwI_togRDMLbyT-78" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="930" y="788.4999999999998" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="FuczjbSwI_togRDMLbyT-75" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="930" y="880" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="710" y="747" />
-              <mxPoint x="710" y="880" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-193" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="FuczjbSwI_togRDMLbyT-87" target="FuczjbSwI_togRDMLbyT-15">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-87" value="REGISTER&amp;nbsp;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1;dashed=0;" parent="1" vertex="1">
-          <mxGeometry x="940" y="970" width="410" height="470" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-88" value="NAME" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
-          <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="70" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-89" value="John Smith" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
-          <mxGeometry width="370" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="90" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-90" value="Write your name as written in your debit/credit card" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=0;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
-          <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="123" as="offset" />
-          </mxGeometry>
+        <mxCell id="FuczjbSwI_togRDMLbyT-87" value="PAYMENT" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1;dashed=0;" parent="1" vertex="1">
+          <mxGeometry x="1410" y="1380" width="410" height="390" as="geometry" />
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-91" value="E-MAIL" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
           <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="157" as="offset" />
+            <mxPoint x="20" y="77" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-92" value="jsmith@gmail.com" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
           <mxGeometry width="370" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="177" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-97" value="REGISTER" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
-          <mxGeometry x="1" y="1" width="89" height="33" relative="1" as="geometry">
-            <mxPoint x="-110" y="-52" as="offset" />
+            <mxPoint x="20" y="97" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-100" value="VALID THRU" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
           <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="395" as="offset" />
+            <mxPoint x="20" y="295" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-101" value="XX/XX" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
           <mxGeometry width="60" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="415" as="offset" />
+            <mxPoint x="20" y="315" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-206" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="FuczjbSwI_togRDMLbyT-87" source="FuczjbSwI_togRDMLbyT-97">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="332" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-102" value="CVV" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
           <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="140" y="395" as="offset" />
+            <mxPoint x="140" y="295" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="FuczjbSwI_togRDMLbyT-103" value="XXX" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
           <mxGeometry width="60" height="33" relative="1" as="geometry">
-            <mxPoint x="140" y="415" as="offset" />
+            <mxPoint x="140" y="315" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-189" value="CARD NUMBER" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" vertex="1" parent="FuczjbSwI_togRDMLbyT-87">
           <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="320" as="offset" />
+            <mxPoint x="20" y="220" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-190" value="XXXX XXXX XXXX XXXX" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" vertex="1" parent="FuczjbSwI_togRDMLbyT-87">
           <mxGeometry width="370" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="340" as="offset" />
+            <mxPoint x="20" y="240" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-191" value="PASSWORD" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=1;strokeWidth=2;fontColor=#596780" vertex="1" parent="FuczjbSwI_togRDMLbyT-87">
           <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="226" as="offset" />
+            <mxPoint x="20" y="146" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-192" value="******" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7;align=left;spacingLeft=10;fontColor=#596780" vertex="1" parent="FuczjbSwI_togRDMLbyT-87">
           <mxGeometry width="370" height="33" relative="1" as="geometry">
-            <mxPoint x="20" y="246" as="offset" />
+            <mxPoint x="20" y="166" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-194" value="Minimum 6 caracteres" style="dashed=0;html=1;rounded=1;fillColor=none;strokeColor=none;fontSize=11;align=left;fontStyle=0;strokeWidth=2;fontColor=#596780" vertex="1" parent="FuczjbSwI_togRDMLbyT-87">
-          <mxGeometry width="100" height="20" relative="1" as="geometry">
-            <mxPoint x="20" y="283" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-105" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; WHAT DO YOU WANT?&lt;br&gt;&lt;/font&gt;&lt;/b&gt;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;dashed=0;" parent="1" vertex="1">
-          <mxGeometry x="1460" y="820" width="250" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-106" value="RETURN" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" parent="FuczjbSwI_togRDMLbyT-105" vertex="1">
-          <mxGeometry width="80" height="33" relative="1" as="geometry">
-            <mxPoint x="139" y="65" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-108" value="RENT" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" parent="FuczjbSwI_togRDMLbyT-105" vertex="1">
-          <mxGeometry width="70" height="33" relative="1" as="geometry">
-            <mxPoint x="39" y="65" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="FuczjbSwI_togRDMLbyT-105" source="FuczjbSwI_togRDMLbyT-106">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="310" y="81" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="FuczjbSwI_togRDMLbyT-105" source="FuczjbSwI_togRDMLbyT-108">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="80" y="240" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="80" y="230" />
-            </Array>
+        <mxCell id="FuczjbSwI_togRDMLbyT-97" value="PAY" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" parent="FuczjbSwI_togRDMLbyT-87" vertex="1">
+          <mxGeometry x="1" y="1" width="89" height="33" relative="1" as="geometry">
+            <mxPoint x="-110" y="-75" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;RETURN&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Verify that case is snapped closed properly. If is not possible or the case is damaged please ask Customer Service for a new case.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Insert the case below green arrow on machine.&lt;/div&gt;&lt;/div&gt;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1780" y="780" width="330" height="210" as="geometry" />
+          <mxGeometry x="900" y="640" width="330" height="210" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-2" value="OK" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-1">
           <mxGeometry width="50" height="33" relative="1" as="geometry">
@@ -284,7 +129,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-8" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;CONFIRMATION&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Your DVD/Blue-Ray was returned successfully.&lt;/div&gt;&lt;/div&gt;&lt;div&gt;We are sending your receipt by e-mail.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1910" y="1030" width="290" height="170" as="geometry" />
+          <mxGeometry x="1330" y="890" width="290" height="170" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-9" value="OK" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-8">
           <mxGeometry width="50" height="33" relative="1" as="geometry">
@@ -301,19 +146,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-12" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;FIRST STEP&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="2250" y="1120" width="160" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="FuczjbSwI_togRDMLbyT-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="FuczjbSwI_togRDMLbyT-97" target="FuczjbSwI_togRDMLbyT-105" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1430" y="910" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="1400" y="1405" />
-              <mxPoint x="1400" y="917" />
-            </Array>
-          </mxGeometry>
+          <mxGeometry x="1670" y="980" width="160" height="49" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-14" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;NEW RELEASES&lt;br&gt;&lt;/font&gt;&lt;/b&gt;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1430" y="1240" width="380" height="500" as="geometry" />
+          <mxGeometry x="480" y="1080" width="380" height="500" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-18" value="" style="dashed=0;html=1;rounded=1;fillColor=#F7F8F9;strokeColor=#E0E2E7;arcSize=7" vertex="1" parent="laQGCkyz7igp9S0ip7VO-14">
           <mxGeometry x="1" width="119" height="20" relative="1" as="geometry">
@@ -332,93 +168,93 @@
           <mxGeometry x="290" y="451" width="66" height="33" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-60" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1453.54" y="1315" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="503.53999999999996" y="1155" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-61" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1543.54" y="1315" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="593.54" y="1155" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-62" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1723.54" y="1315" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="773.54" y="1155" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-63" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1633.54" y="1315" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="683.54" y="1155" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-64" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1453.54" y="1435" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="503.53999999999996" y="1275" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-65" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1543.54" y="1435" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="593.54" y="1275" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-66" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1723.54" y="1435" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="773.54" y="1275" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-67" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1633.54" y="1435" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="683.54" y="1275" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-68" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1453.54" y="1555" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="503.53999999999996" y="1395" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-69" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1543.54" y="1555" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="593.54" y="1395" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-70" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1723.54" y="1555" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="773.54" y="1395" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-71" value="MOVIE" style="rounded=1;arcSize=5;fillColor=#0065FF;strokeColor=none;fontColor=#ffffff;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;html=1;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1633.54" y="1555" width="61.46" height="72" as="geometry" />
+          <mxGeometry x="683.54" y="1395" width="61.46" height="72" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-72" value="Movie" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox_2;fillColor=#0057D8;strokeColor=none;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="1458" y="1397" width="12" height="12" as="geometry" />
+          <mxGeometry x="508" y="1237" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-73" value="Movie" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox_2;fillColor=#0057D8;strokeColor=none;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="1548" y="1397" width="12" height="12" as="geometry" />
+          <mxGeometry x="598" y="1237" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-84" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1731" y="1397" width="12" height="12" as="geometry" />
+          <mxGeometry x="781" y="1237" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-85" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1641" y="1397" width="12" height="12" as="geometry" />
+          <mxGeometry x="691" y="1237" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-87" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1554" y="1517" width="12" height="12" as="geometry" />
+          <mxGeometry x="604" y="1357" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-89" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1731" y="1517" width="12" height="12" as="geometry" />
+          <mxGeometry x="781" y="1357" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-90" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1731" y="1637" width="12" height="12" as="geometry" />
+          <mxGeometry x="781" y="1477" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-91" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1641" y="1637" width="12" height="12" as="geometry" />
+          <mxGeometry x="691" y="1477" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-92" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1461" y="1637" width="12" height="12" as="geometry" />
+          <mxGeometry x="511" y="1477" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-93" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1551" y="1637" width="12" height="12" as="geometry" />
+          <mxGeometry x="601" y="1477" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1630" y="1230" as="targetPoint" />
-            <mxPoint x="1630" y="1190" as="sourcePoint" />
+            <mxPoint x="680" y="1070" as="targetPoint" />
+            <mxPoint x="680" y="1030" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-94" value="&lt;span style=&quot;font-size: 18px&quot;&gt;IF IT IS THE FIRST RENTAL, THE USER&lt;br&gt;CAN RENT MAX 2 DISK, OTHERWISE&amp;nbsp;&lt;br&gt;THEY CAN SELECT 4 DISKS OR IF IT IS&lt;br&gt;UNLIMITED PLAN THE USER ARE FREE&lt;br&gt;TO RENT&amp;nbsp;ANY QUANTITY OF MOVIES&lt;br&gt;&lt;/span&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="1450" y="1060" width="360" height="120" as="geometry" />
+          <mxGeometry x="490" y="909" width="360" height="120" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-98" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1464" y="1517" width="12" height="12" as="geometry" />
+          <mxGeometry x="514" y="1357" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-99" value="Text" style="rounded=1;fillColor=#F0F2F5;strokeColor=#D8DCE3;align=left;verticalAlign=middle;fontStyle=0;fontSize=12;labelPosition=right;verticalLabelPosition=middle;spacingLeft=10;html=1;shadow=0;dashed=0" vertex="1" parent="1">
-          <mxGeometry x="1641" y="1517" width="12" height="12" as="geometry" />
+          <mxGeometry x="691" y="1357" width="12" height="12" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-103">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1880" y="1707.5" as="targetPoint" />
+            <mxPoint x="930" y="1547.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-107" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;MOVIE DETAILS / CONFIRMATION&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;YOUR MOVIE SELECTION:&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;Short description of the movie, type, age recommended&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Short description of the movie, type, age recommended&lt;br&gt;&lt;/div&gt;&lt;div&gt;Short description of the movie, type, age recommended&lt;br&gt;&lt;/div&gt;&lt;div&gt;Short description of the movie, type, age recommended&lt;br&gt;&lt;/div&gt;&lt;div&gt;Short description of the movie, type, age recommended&lt;br&gt;&lt;/div&gt;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="1885" y="1540" width="340" height="304" as="geometry" />
+          <mxGeometry x="935" y="1380" width="340" height="304" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-108" value="CONFIRM" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-107">
           <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
@@ -450,15 +286,15 @@
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-130" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.395;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-109" target="laQGCkyz7igp9S0ip7VO-14">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1580" y="1770" as="targetPoint" />
+            <mxPoint x="630" y="1610" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="2095" y="1880" />
-              <mxPoint x="1580" y="1880" />
+              <mxPoint x="1145" y="1720" />
+              <mxPoint x="630" y="1720" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-131" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
-          <mxGeometry x="2350" y="1740" width="333" height="180" as="geometry" />
+          <mxGeometry x="1900" y="1570" width="333" height="180" as="geometry" />
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-132" value="&lt;b&gt;PAYMENT&lt;/b&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox;fillColor=#36B37E;strokeColor=none;html=1;fontSize=14;fontStyle=0;labelPosition=right;align=left;spacingLeft=20" vertex="1" parent="laQGCkyz7igp9S0ip7VO-131">
           <mxGeometry width="14" height="14" relative="1" as="geometry">
@@ -476,213 +312,39 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="laQGCkyz7igp9S0ip7VO-141" value="&lt;span style=&quot;font-size: 18px&quot;&gt;CLOSE THIS MESSAGE&lt;br&gt;AND GO BACK TO THE&lt;br&gt;FIRST SCREEN&lt;br&gt;&lt;/span&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="2720" y="1820" width="240" height="79" as="geometry" />
+          <mxGeometry x="2290" y="1665" width="240" height="79" as="geometry" />
         </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-144" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" target="laQGCkyz7igp9S0ip7VO-141">
+        <mxCell id="laQGCkyz7igp9S0ip7VO-144" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="2680" y="1879" as="sourcePoint" />
-            <mxPoint x="2710" y="1850" as="targetPoint" />
+            <mxPoint x="2230" y="1709" as="sourcePoint" />
+            <mxPoint x="2270" y="1709.25" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="2550" y="1879" />
+              <mxPoint x="2100" y="1709" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-145" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-106">
+        <mxCell id="laQGCkyz7igp9S0ip7VO-201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-197" target="laQGCkyz7igp9S0ip7VO-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-202" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.345;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-195" target="laQGCkyz7igp9S0ip7VO-94">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-207" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;CHECKING DATA RENTING&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Your DVD/Blue-Ray was returned successfully.&lt;/div&gt;&lt;/div&gt;&lt;div&gt;We are sending your receipt by e-mail.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=12;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="890" width="290" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-208" value="OK" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-207">
+          <mxGeometry width="50" height="33" relative="1" as="geometry">
+            <mxPoint x="120" y="110" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="laQGCkyz7igp9S0ip7VO-209" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="laQGCkyz7igp9S0ip7VO-207">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1510" y="420" as="targetPoint" />
+            <mxPoint x="320" y="127" as="targetPoint" />
+            <mxPoint x="170" y="126.80952380952381" as="sourcePoint" />
             <Array as="points">
-              <mxPoint x="975" y="420" />
-              <mxPoint x="1500" y="420" />
+              <mxPoint x="198" y="126.80952380952381" />
             </Array>
           </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-146" value="" style="html=1;rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;fontSize=20;align=left;fontColor=#000000;shadow=1;arcSize=1;whiteSpace=wrap;spacing=20;verticalAlign=top;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="1510" y="90" width="616" height="370" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-147" value="&lt;span style=&quot;font-size: 17px&quot;&gt;UNLIMITED MOVIES&lt;br&gt;&lt;/span&gt;" style="html=1;fillColor=none;strokeColor=none;fontSize=12;align=left;fontStyle=1;strokeWidth=2;fontColor=000000;verticalAlign=top" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
-          <mxGeometry width="180" height="30" relative="1" as="geometry">
-            <mxPoint x="20" y="20" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-150" value="&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- No more late fees&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Keep as long as you want&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- Rent as often as you want*&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;- €8.99 a month&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#3f3f3f&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;* For €8.99 a month you can rent as many times as you like with no late fees! Simply return the movies to any Xtra-vision Xpress vending machine and rent again, easy as that! You can hold two movies at any time and rent as many times as you like. You can also cancel the service at any Xtra-vision Xpress machine.&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
-          <mxGeometry x="12" y="197.44444444444443" width="578" height="96.9071111111111" as="geometry">
-            <mxPoint x="10" y="-100" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-152" value="START YOUR&lt;br&gt;UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#00CC00;strokeColor=#00CC00;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
-          <mxGeometry x="30" y="280" width="150" height="41.33" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-153" value="CANCEL YOUR&lt;br&gt;UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#D8312B;strokeColor=#D8312B;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
-          <mxGeometry x="234" y="280" width="150" height="41.33" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-154" value="RENT WITH&lt;br&gt;UNLIMITED MOVIES" style="dashed=0;html=1;rounded=1;fontSize=12;align=center;fontStyle=1;strokeWidth=2;fontColor=#ffffff;shadow=0;fillColor=#007FFF;strokeColor=#007FFF;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-146">
-          <mxGeometry x="440" y="280" width="150" height="41.33" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-155" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
-          <mxGeometry x="1473" y="560" width="333" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-156" value="&lt;b&gt;UNLIMETED MOVIE PLAN&lt;/b&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox;fillColor=#36B37E;strokeColor=none;html=1;fontSize=14;fontStyle=0;labelPosition=right;align=left;spacingLeft=20" vertex="1" parent="laQGCkyz7igp9S0ip7VO-155">
-          <mxGeometry width="14" height="14" relative="1" as="geometry">
-            <mxPoint x="25" y="25" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-157" value="&lt;div style=&quot;text-align: center&quot;&gt;Are you sure you want to buy the UNLIMITED MOVIE PLAN per €8.99 a month?&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" vertex="1" parent="laQGCkyz7igp9S0ip7VO-155">
-          <mxGeometry width="300" height="60" relative="1" as="geometry">
-            <mxPoint x="20" y="50" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-158" value="YES" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-155">
-          <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
-            <mxPoint x="-242" y="-60.000000000000014" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-160" value="NO" style="dashed=0;html=1;rounded=1;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff;fillColor=#D8312B;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-155">
-          <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
-            <mxPoint x="-152" y="-60.000000000000014" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="laQGCkyz7igp9S0ip7VO-155" source="laQGCkyz7igp9S0ip7VO-160">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="377" y="-60" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="377" y="137" />
-              <mxPoint x="377" y="-20" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="laQGCkyz7igp9S0ip7VO-155" source="laQGCkyz7igp9S0ip7VO-158">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="547" y="170" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="127" y="200" />
-              <mxPoint x="547" y="200" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-152">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="1615" y="550" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-163" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
-          <mxGeometry x="1910" y="520" width="280" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-164" value="&lt;b&gt;CONFIRMATION&lt;/b&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox;fillColor=#36B37E;strokeColor=none;html=1;fontSize=14;fontStyle=0;labelPosition=right;align=left;spacingLeft=20" vertex="1" parent="laQGCkyz7igp9S0ip7VO-163">
-          <mxGeometry width="14" height="14" relative="1" as="geometry">
-            <mxPoint x="25" y="25" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-165" value="&lt;div style=&quot;text-align: center&quot;&gt;Enjoy your UNLIMITED MOVIES!&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" vertex="1" parent="laQGCkyz7igp9S0ip7VO-163">
-          <mxGeometry width="230" height="50" relative="1" as="geometry">
-            <mxPoint x="37" y="60" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-166" value="OK" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-163">
-          <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
-            <mxPoint x="-167.5" y="-61.000000000000014" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-168" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;AVAILABLE MOVIES&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="2240" y="630" width="190" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-170" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-166">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="2220" y="740" as="sourcePoint" />
-            <mxPoint x="2230" y="656" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-171" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-153">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="2260" y="360" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="1819" y="440" />
-              <mxPoint x="2260" y="440" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-172" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
-          <mxGeometry x="2158" y="170" width="362" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-173" value="&lt;b&gt;UNLIMETED MOVIE PLAN CANCELATION&lt;/b&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox;fillColor=#36B37E;strokeColor=none;html=1;fontSize=14;fontStyle=0;labelPosition=right;align=left;spacingLeft=20" vertex="1" parent="laQGCkyz7igp9S0ip7VO-172">
-          <mxGeometry width="14" height="14" relative="1" as="geometry">
-            <mxPoint x="25" y="25" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-174" value="&lt;div style=&quot;text-align: center&quot;&gt;Are you sure you want to CANCEL&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;your UNLIMITED MOVIE PLAN?&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" vertex="1" parent="laQGCkyz7igp9S0ip7VO-172">
-          <mxGeometry width="230" height="60" relative="1" as="geometry">
-            <mxPoint x="72" y="50" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-175" value="YES" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-172">
-          <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
-            <mxPoint x="-252" y="-60.000000000000014" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-176" value="NO" style="dashed=0;html=1;rounded=1;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff;fillColor=#D8312B;" vertex="1" parent="laQGCkyz7igp9S0ip7VO-172">
-          <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
-            <mxPoint x="-162" y="-60.000000000000014" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-177" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="laQGCkyz7igp9S0ip7VO-172" source="laQGCkyz7igp9S0ip7VO-176">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-28" y="110" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="236" y="110" />
-              <mxPoint x="-28" y="110" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="laQGCkyz7igp9S0ip7VO-172" source="laQGCkyz7igp9S0ip7VO-175">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="552" y="170" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="138" y="200" />
-              <mxPoint x="552" y="200" />
-              <mxPoint x="552" y="170" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-179" value="" style="rounded=1;fillColor=#ffffff;strokeColor=#DFE1E5;shadow=1;html=1;arcSize=4;dashed=0;align=left;" vertex="1" parent="1">
-          <mxGeometry x="2595" y="150" width="225" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-180" value="&lt;b&gt;CONFIRMATION&lt;/b&gt;" style="html=1;shadow=0;dashed=0;shape=mxgraph.atlassian.checkbox;fillColor=#36B37E;strokeColor=none;html=1;fontSize=14;fontStyle=0;labelPosition=right;align=left;spacingLeft=20" vertex="1" parent="laQGCkyz7igp9S0ip7VO-179">
-          <mxGeometry width="14" height="14" relative="1" as="geometry">
-            <mxPoint x="25" y="25" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-181" value="&lt;div style=&quot;text-align: center&quot;&gt;Your UNLIMITED MOVIES&lt;/div&gt;&lt;div style=&quot;text-align: center&quot;&gt;was cancelled!&lt;/div&gt;" style="fillColor=none;strokeColor=none;html=1;fontSize=14;fontStyle=0;fontColor=#000000;align=left;whiteSpace=wrap" vertex="1" parent="laQGCkyz7igp9S0ip7VO-179">
-          <mxGeometry width="180" height="50" relative="1" as="geometry">
-            <mxPoint x="27" y="60" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-182" value="OK" style="dashed=0;html=1;rounded=1;fillColor=#0057D8;strokeColor=none;fontSize=12;align=center;fontStyle=0;strokeWidth=2;fontColor=#ffffff" vertex="1" parent="laQGCkyz7igp9S0ip7VO-179">
-          <mxGeometry x="1" y="1" width="71" height="33" relative="1" as="geometry">
-            <mxPoint x="-137.5" y="-61.000000000000014" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-183" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;AVAILABLE MOVIES&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="2896.5" y="260.5" width="190" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-184" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="2750" y="286" as="sourcePoint" />
-            <mxPoint x="2886.5" y="286.5" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-185" value="" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="laQGCkyz7igp9S0ip7VO-154">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="2183.5" y="415.5" as="sourcePoint" />
-            <mxPoint x="2320" y="416" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-186" value="&lt;font style=&quot;font-size: 18px&quot;&gt;RETURN TO THE &lt;br&gt;AVAILABLE MOVIES&lt;/font&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="2330" y="390" width="190" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-187" value="&lt;span style=&quot;font-size: 18px&quot;&gt;REGISTER THE CARD AND&lt;br&gt;USER DETAILS&lt;/span&gt;" style="dashed=0;html=1;fillColor=#F0F2F5;strokeColor=none;align=center;rounded=1;arcSize=10;fontColor=#596780;fontStyle=1;fontSize=11;shadow=0" vertex="1" parent="1">
-          <mxGeometry x="1497.5" y="480" width="245" height="49" as="geometry" />
-        </mxCell>
-        <mxCell id="laQGCkyz7igp9S0ip7VO-188" value="Dinamic&lt;br&gt;Dropdownlist" style="rounded=1;align=center;fillColor=#F1F2F4;strokeColor=none;html=1;fontColor=#596780;fontSize=12;shadow=0;dashed=0;" vertex="1" parent="1">
-          <mxGeometry x="430" y="730" width="80" height="33" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
