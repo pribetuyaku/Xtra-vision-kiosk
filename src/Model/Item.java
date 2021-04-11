@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -12,7 +11,7 @@ public class Item {
     private int paymentid;
     private Category Category;
     
-    public Item(Category Category){
+    public Item(Category Category){ //
         this.Category = Category;
     }
 

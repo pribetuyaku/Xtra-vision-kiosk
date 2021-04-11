@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -33,7 +32,8 @@ public class Category {
     public void setType(char type) {
         this.type = type;
     }
-   
+
+ 
    
     
 }
