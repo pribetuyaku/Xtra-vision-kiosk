@@ -11,14 +11,18 @@ import DAO.CategoryDAO;
 public class TestCategory {
     public static void main(String[] args) {
         Category Category = new Category();
-        Category.setName("Action");
+        Category.setName("Horror");
         Category.setType('D'); //D-> DVD & B-> Blue-Ray
         
-        CategoryDAO.insert(Category);
+        //insert
+        //CategoryDAO.insert(Category);
         
         //update lines
-        //Category.setId(1);
+        //Category.setId(3);
         //System.out.println(CategoryDAO.update(Category));
+        
+        //delete
+        //System.out.println(CategoryDAO.delete(3));
        
                 
     }

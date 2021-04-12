@@ -4,6 +4,8 @@ package DAO;
 import java.sql.Connection;
 import Model.Category;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,7 +41,7 @@ public class CategoryDAO {
             Connection con = Connect.getConnection();
             //set the instructions into the SQL
             //only one register per time
-            String sql = "UPDATE Category SET " + "name = ?, " + "tipo = ? " + "WHERE idCategory = ?";
+            String sql = "UPDATE Category SET " + "name = ?, " + "tipo = ? " + "WHERE id = ?";
             PreparedStatement command = con.prepareStatement(sql);
             command.setString(1, Category.getName()); //take the name to change
             //take the type to change but Change to String
@@ -48,9 +50,44 @@ public class CategoryDAO {
             //execute and update
             int numLines = command.executeUpdate();
             //close the connection
+            command.close();            
             return numLines > 0; // if the numLines will be greater than 0, the register was modiefied
         } catch (Exception e) {
             return false;
         }
+    }
+    
+    public static boolean delete (int id){
+        try {
+            //open connection
+            Connection con = Connect.getConnection();
+            //set the instructions into the SQL
+            //only one register per time
+            String sql = "DELETE FROM Category WHERE id = ?";
+            PreparedStatement command = con.prepareStatement(sql);
+            command.setInt(1, id); //take the name to delete
+            //take the type to change but Change to String
+            //execute and update
+            int numLines = command.executeUpdate();
+            //close the connection
+            command.close();
+            return numLines > 0; // if the numLines will be greater than 0, the register was modiefied
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    
+    public static ArrayList<Category> ListCategory(){
+        ArrayList<Category> categories = new ArrayList<Category>();
+        try {
+            Connection con = Connect.getConnection();
+            String sql = "SELECT * FROM Category";
+            Statement command = con.createStatement();
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return categories;
     }
 }
