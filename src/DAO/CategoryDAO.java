@@ -4,6 +4,7 @@ package DAO;
 import java.sql.Connection;
 import Model.Category;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class CategoryDAO { 
     //inser a data into the database but return the result true or false(boolean)
     //just to make sure if works
-    public static boolean insert(Category Category){
+    public static boolean insert(Category category){
         try {
             //open connection
             Connection connect = Connect.getConnection();
@@ -22,8 +23,8 @@ public class CategoryDAO {
             String sql = "INSERT INTO Category(name, type) " + "VALUES(?,?)";
             PreparedStatement command = connect.prepareStatement(sql);
             //Insert the values into the Database
-            command.setString(1, Category.getName());
-            command.setString(2, String.valueOf(Category.getType()));
+            command.setString(1, category.getName());
+            command.setString(2, String.valueOf(category.getType()));
             //execute
             command.execute();
             //close the connection
@@ -33,28 +34,6 @@ public class CategoryDAO {
             return false;
         }
                          
-    }
-    
-    public static boolean update (Category Category){
-        try {
-            //open connection
-            Connection con = Connect.getConnection();
-            //set the instructions into the SQL
-            //only one register per time
-            String sql = "UPDATE Category SET " + "name = ?, " + "tipo = ? " + "WHERE id = ?";
-            PreparedStatement command = con.prepareStatement(sql);
-            command.setString(1, Category.getName()); //take the name to change
-            //take the type to change but Change to String
-            command.setString(2, String.valueOf(Category.getType())); 
-            command.setInt(3, Category.getId()); //take the id 
-            //execute and update
-            int numLines = command.executeUpdate();
-            //close the connection
-            command.close();            
-            return numLines > 0; // if the numLines will be greater than 0, the register was modiefied
-        } catch (Exception e) {
-            return false;
-        }
     }
     
     public static boolean delete (int id){
@@ -77,14 +56,46 @@ public class CategoryDAO {
             return false;
         }
     }
+   
+    public static boolean update(Category category){
+        try {
+            //open connection
+            Connection conn = Connect.getConnection();
+            //set the instructions into the SQL and change one register per time
+            String sql = "UPDATE Category SET "
+                    + "name = ?, "
+                    + "tipo = ? "
+                    + "WHERE id = ? ";
+            PreparedStatement command = conn.prepareStatement(sql);
+            //change the values into the Database
+            command.setString(1, category.getName()); //take the name to change
+            command.setString(2, String.valueOf(category.getType())); //take the type to change but Change to String
+            command.setInt(3, category.getId());
+            
+            int nLine = command.executeUpdate();
+            return nLine > 0;
+        } catch (Exception e) {
+           
+        } return false;
+    }
     
-    public static ArrayList<Category> ListCategory(){
+    public static ArrayList<Category> ListCategory(){ //list all the categories from the Database
         ArrayList<Category> categories = new ArrayList<Category>();
         try {
             Connection con = Connect.getConnection();
             String sql = "SELECT * FROM Category";
-            Statement command = con.createStatement();
-            
+            Statement command = con.createStatement(); // to excute the Database command without any parameters
+            //Result 
+            ResultSet result = command.executeQuery(sql);
+            while(result.next()){
+                Category c = new Category();
+                c.setId(result.getInt("id"));
+                c.setName(result.getString("name"));
+                c.setType(result.getString("type").charAt(0));
+                categories.add(c);
+            }
+            result.close();
+            command.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

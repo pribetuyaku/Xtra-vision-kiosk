@@ -10,19 +10,19 @@ import DAO.CategoryDAO;
  */
 public class TestCategory {
     public static void main(String[] args) {
-        Category Category = new Category();
-        Category.setName("Horror");
-        Category.setType('D'); //D-> DVD & B-> Blue-Ray
+        Category category = new Category();
+        category.setName("Horror");
+        category.setType('M'); //M-> Movie & S-> Series
         
         //insert
-        //CategoryDAO.insert(Category);
-        
-        //update lines
-        //Category.setId(3);
-        //System.out.println(CategoryDAO.update(Category));
-        
+        //CategoryDAO.insert(category);
+                       
         //delete
-        //System.out.println(CategoryDAO.delete(3));
+        //System.out.println(CategoryDAO.delete(1));
+        
+        //update
+        category.setId(2);
+        System.out.println(CategoryDAO.update(category));
        
                 
     }
