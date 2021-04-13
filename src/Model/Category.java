@@ -32,6 +32,26 @@ public class Category {
     public void setType(char type) {
         this.type = type;
     }
+    
+    //method to show the full name into the table. Same as if statement showed below
+    public String getNameType(){
+        return type == 'M' ? "Movie" : "Serie"; //ternary conditional
+        /*
+        if(type == 'M'){
+            return "Movie";
+        }else{
+            return "Serie";
+        }
+        */
+    }
+
+    @Override //show the result as String
+    public String toString() {
+        return "\n" + "Category"
+                +"\n" + "ID: " + id +
+                "\n" + ", Name: " + name +
+                "\n" + ", Type: " + type;
+    }
 
  
    

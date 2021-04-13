@@ -27,6 +27,7 @@ public class WelcomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         jWelcome = new javax.swing.JLabel();
         jRequirements = new javax.swing.JLabel();
         jCards = new javax.swing.JLabel();
@@ -39,28 +40,31 @@ public class WelcomePage extends javax.swing.JFrame {
         jCart = new javax.swing.JMenuItem();
         jExit = new javax.swing.JMenuItem();
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jWelcome.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jWelcome.setForeground(new java.awt.Color(255, 255, 255));
         jWelcome.setText("WELCOME TO XTRA-VISION RENTAL KIOSK");
-        getContentPane().add(jWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        getContentPane().add(jWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 440, 30));
 
-        jRequirements.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jRequirements.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jRequirements.setForeground(new java.awt.Color(255, 255, 255));
         jRequirements.setText("NO membership or sing-up required.");
-        getContentPane().add(jRequirements, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, -1, -1));
+        getContentPane().add(jRequirements, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
 
-        jCards.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jCards.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jCards.setForeground(new java.awt.Color(255, 255, 255));
         jCards.setText("CREDIT and DEBIT Card Accepted!");
-        getContentPane().add(jCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        getContentPane().add(jCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
         jOptions.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jOptions.setForeground(new java.awt.Color(255, 255, 255));
         jOptions.setText("Please select your option:");
-        getContentPane().add(jOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+        getContentPane().add(jOptions, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
         jRentButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRentButton.setText("RENT");
@@ -69,15 +73,15 @@ public class WelcomePage extends javax.swing.JFrame {
                 jRentButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jRentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 90, 40));
+        getContentPane().add(jRentButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 90, 40));
 
         jReturnButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jReturnButton.setText("RETURN");
-        getContentPane().add(jReturnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 90, 40));
+        getContentPane().add(jReturnButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 90, 40));
 
         jRedBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/redBackground.jpg"))); // NOI18N
         jRedBackground.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        getContentPane().add(jRedBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 509, 360));
+        getContentPane().add(jRedBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 330));
 
         jMenuFile.setText("File");
 
@@ -87,6 +91,11 @@ public class WelcomePage extends javax.swing.JFrame {
 
         jExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/icons/baseline_exit_to_app_black_24dp.png"))); // NOI18N
         jExit.setText("Exit");
+        jExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jExitActionPerformed(evt);
+            }
+        });
         jMenuFile.add(jExit);
 
         jMenuBar.add(jMenuFile);
@@ -94,11 +103,17 @@ public class WelcomePage extends javax.swing.JFrame {
         setJMenuBar(jMenuBar);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRentButtonActionPerformed
-        // TODO add your handling code here:
+        new List().setVisible(true); //open the list of movies
+        dispose(); //close the current screen
     }//GEN-LAST:event_jRentButtonActionPerformed
+
+    private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
+      
+    }//GEN-LAST:event_jExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +153,7 @@ public class WelcomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jCards;
     private javax.swing.JMenuItem jCart;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JMenuItem jExit;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuFile;

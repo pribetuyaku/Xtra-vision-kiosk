@@ -30,7 +30,7 @@ public class HowItWorks extends javax.swing.JFrame {
         jLogo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jTitle = new javax.swing.JLabel();
-        jNextButton = new java.awt.Button();
+        jButton1 = new javax.swing.JButton();
         jBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,15 +58,14 @@ public class HowItWorks extends javax.swing.JFrame {
         jTitle.setText("HOW IT WORKS?");
         getContentPane().add(jTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 75, -1, -1));
 
-        jNextButton.setBackground(new java.awt.Color(242, 248, 66));
-        jNextButton.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jNextButton.setLabel("NEXT");
-        jNextButton.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("GOT IT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jNextButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jNextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 60, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
         jBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/redBackground.jpg"))); // NOI18N
         jBackground.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -75,9 +74,9 @@ public class HowItWorks extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jNextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNextButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jNextButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         new WelcomePage().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,9 +115,9 @@ public class HowItWorks extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jBackground;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLogo;
-    private java.awt.Button jNextButton;
     private javax.swing.JLabel jTitle;
     // End of variables declaration//GEN-END:variables
 }
