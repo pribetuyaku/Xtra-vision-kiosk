@@ -11,14 +11,14 @@ import DAO.CategoryDAO;
 public class TestCategory {
     public static void main(String[] args) {
         Category category = new Category();
-        category.setName("Police");
+        category.setName("Mexican");
         category.setType('S'); //M-> Movie & S-> Series
         
         //insert
 //        CategoryDAO.insert(category);
                        
         //delete
-//        System.out.println(CategoryDAO.delete(5));
+//        System.out.println(CategoryDAO.delete(12));
         
         //update
 //        category.setId(2);

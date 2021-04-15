@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author Betuyaku
  */
 public class CategoryDAO { 
-    //inser a data into the database but return the result true or false(boolean)
+    //insert a data into the database but return the result true or false(boolean)
     //just to make sure if works
     public static boolean insert(Category category){
         try {

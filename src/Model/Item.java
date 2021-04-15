@@ -5,22 +5,39 @@ package Model;
  * @author Betuyaku
  */
 public class Item {
-    private int idItem;
+    private int id;
+    private String title;
+    private String description;
     private double price;
-    private int idMovie;
-    private int paymentid;
-    private Category Category;
+    private int nRentDays;
+    private Category category;
     
-    public Item(Category Category){ //
-        this.Category = Category;
+    public Item(Category category){ //
+        this.category = category;
     }
 
-    public int getIdItem() {
-        return idItem;
+    public int getId() {
+        return id;
     }
 
-    public void setIdItem(int idItem) {
-        this.idItem = idItem;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getPrice() {
@@ -31,29 +48,22 @@ public class Item {
         this.price = price;
     }
 
-    public int getIdMovie() {
-        return idMovie;
+    public int getnRentDays() {
+        return nRentDays;
     }
 
-    public void setIdMovie(int idMovie) {
-        this.idMovie = idMovie;
-    }
-
-    public int getPaymentid() {
-        return paymentid;
-    }
-
-    public void setPaymentid(int paymentid) {
-        this.paymentid = paymentid;
+    public void setnRentDays(int nRentDays) {
+        this.nRentDays = nRentDays;
     }
 
     public Category getCategory() {
-        return Category;
+        return category;
     }
 
-    public void setCategory(Category Category) {
-        this.Category = Category;
+    public void setCategory(Category category) {
+        this.category = category;
     }
+
 
 
     

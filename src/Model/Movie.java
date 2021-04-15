@@ -8,14 +8,16 @@ package Model;
 public class Movie extends Item{
     private int idMovie;
     private String title;
-    private String genre;
+    private String category;
     private String year;
+    private String description;
     
-    public Movie(Category Category){ //take one parameter declared in the child class and send it to the parent class
-        super(Category); //this means the parameter Category declared into the Item is now accessible to the class Movie
+    public Movie(Category category){ //take one parameter declared in the child class and send it to the parent class
+        super(category); //this means the parameter Category declared into the Item is now accessible to the class Movie
                 
     }
 
+   
     @Override
     public int getIdMovie() {
         return idMovie;
@@ -34,12 +36,12 @@ public class Movie extends Item{
         this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getCAtegory() {
+        return category;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenre(String category) {
+        this.category = category;
     }
 
     public String getYear() {
@@ -49,6 +51,15 @@ public class Movie extends Item{
     public void setYear(String year) {
         this.year = year;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
     
     
 }
