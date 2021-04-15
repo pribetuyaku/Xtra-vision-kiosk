@@ -1,6 +1,7 @@
 
 package View;
 
+
 import DAO.CategoryDAO;
 import Model.Category;
 import java.util.ArrayList;
