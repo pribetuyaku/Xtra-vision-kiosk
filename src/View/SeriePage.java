@@ -1,6 +1,14 @@
 
 package View;
 
+import DAO.Connect;
+import java.awt.Image;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Betuyaku
@@ -24,13 +32,20 @@ public class SeriePage extends javax.swing.JFrame {
     private void initComponents() {
 
         jSerie = new javax.swing.JLabel();
+        lblImage = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jHomeButton = new javax.swing.JButton();
         jSearch = new javax.swing.JLabel();
-        jTextSearch = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCombocategory = new javax.swing.JComboBox<>();
         jSeparator2 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblSerie = new javax.swing.JTable();
+        btnShowAll = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDescription = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -48,11 +63,72 @@ public class SeriePage extends javax.swing.JFrame {
 
         jSearch.setText("Search:");
 
-        jTextSearch.setToolTipText("");
+        txtSearch.setToolTipText("");
+        txtSearch.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtSearchCaretUpdate(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
+        });
 
         jLabel1.setText("Category:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCombocategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        tblSerie.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Title", "Category", "Year"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblSerie.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblSerie.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSerieMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblSerie);
+        tblSerie.getAccessibleContext().setAccessibleParent(btnShowAll);
+
+        btnShowAll.setText("SHOW ALL");
+        btnShowAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowAllActionPerformed(evt);
+            }
+        });
+
+        txtDescription.setEditable(false);
+        txtDescription.setColumns(20);
+        txtDescription.setRows(5);
+        txtDescription.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txtDescriptionCaretUpdate(evt);
+            }
+        });
+        txtDescription.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDescriptionKeyReleased(evt);
+            }
+        });
+        jScrollPane2.setViewportView(txtDescription);
+        txtDescription.getAccessibleContext().setAccessibleParent(txtSearch);
+
+        jLabel2.setText("Description:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,22 +137,33 @@ public class SeriePage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jSearch)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextSearch)
-                            .addGap(18, 18, 18)
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jSerie)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jHomeButton))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnShowAll)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jSearch)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtSearch)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jCombocategory, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jSerie)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jHomeButton))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 11, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,13 +177,24 @@ public class SeriePage extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSearch)
-                    .addComponent(jTextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCombocategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnShowAll, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(9, 9, 9)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
+
+        txtSearch.getAccessibleContext().setAccessibleParent(btnShowAll);
 
         pack();
         setLocationRelativeTo(null);
@@ -104,9 +202,92 @@ public class SeriePage extends javax.swing.JFrame {
 
     private void jHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHomeButtonActionPerformed
         new WelcomePage().setVisible(true); //show the WelcomePage when the button is clicked
-      dispose(); //close the current screen
+        dispose(); //close the current screen
     }//GEN-LAST:event_jHomeButtonActionPerformed
 
+    private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
+        // Search Button
+        searchSerie();
+    }//GEN-LAST:event_btnShowAllActionPerformed
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // Show the Series whie the user is typing
+        try { //Connect to the DB
+            Connection con = Connect.getConnection();
+            //
+            String sql = "SELECT Series.title, Series.year, Category.name as category, "
+                    + "Category.type FROM Series \n" +
+            "inner join Category on Series.idCategory = Category.id "
+                    + "WHERE title like '%"+txtSearch.getText()+"%'";
+            Statement command = con.createStatement(); //to excute the Database command without any parameters
+            //Result 
+            ResultSet result = command.executeQuery(sql);
+        //Show the search resuts
+            DefaultTableModel model;
+            model = (DefaultTableModel) tblSerie.getModel();
+            model.setNumRows(0);
+                while(result.next()){
+                    model.addRow(new Object[]{
+                    result.getString("Title"),
+                    result.getString("Category"),
+                    result.getString("Year"),
+                    });
+                }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+             
+        
+    }//GEN-LAST:event_txtSearchKeyReleased
+
+    private void tblSerieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSerieMouseClicked
+        // send the 
+        int line = tblSerie.getSelectedRow();
+        txtDescription.setText(tblSerie.getValueAt(line, 0).toString());
+    }//GEN-LAST:event_tblSerieMouseClicked
+
+    private void txtSearchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchCaretUpdate
+         
+     
+    }//GEN-LAST:event_txtSearchCaretUpdate
+
+    private void txtDescriptionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyReleased
+        // show description
+        
+    }//GEN-LAST:event_txtDescriptionKeyReleased
+
+    private void txtDescriptionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescriptionCaretUpdate
+        // update the search and show the images according the one selected
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\series\\" + txtDescription.getText()+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
+        lblImage.setIcon(imageIcon);
+    }//GEN-LAST:event_txtDescriptionCaretUpdate
+    
+    public void searchSerie(){
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "SELECT Series.title, Series.year, Category.name as category, "
+                    + "Category.type FROM Series " +
+            "inner join Category on Series.idCategory = Category.id";
+            Statement command = con.createStatement(); // to excute the Database command without any parameters
+            //Result 
+            ResultSet result = command.executeQuery(sql);
+        //Show the search resuts
+            DefaultTableModel model;
+            model = (DefaultTableModel) tblSerie.getModel();
+            model.setNumRows(0);
+                while(result.next()){
+                    model.addRow(new Object[]{
+                    result.getString("Title"),
+                    result.getString("Category"),
+                    result.getString("Year"),
+                    });
+                }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -143,13 +324,20 @@ public class SeriePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnShowAll;
+    private javax.swing.JComboBox<String> jCombocategory;
     private javax.swing.JButton jHomeButton;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jSearch;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jSerie;
-    private javax.swing.JTextField jTextSearch;
+    private javax.swing.JLabel lblImage;
+    private javax.swing.JTable tblSerie;
+    private javax.swing.JTextArea txtDescription;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

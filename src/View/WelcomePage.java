@@ -125,8 +125,7 @@ public class WelcomePage extends javax.swing.JFrame {
             new SeriePage().setVisible(true);
             dispose();
         }
-//        new ListRental().setVisible(true); //open the list of movies
-//        dispose(); //close the current screen
+
     }//GEN-LAST:event_jRentButtonActionPerformed
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed

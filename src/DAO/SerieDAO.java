@@ -15,6 +15,7 @@ import java.util.List;
  * @author Betuyaku
  */
 public class SerieDAO {
+    private List<Serie> liSerie;
     public static boolean insertSerie(Serie serie){
         try {
             //open the connection
@@ -87,21 +88,25 @@ public class SerieDAO {
         } 
     }
     
-    public static List<Serie> listSerie(){ //list of Series
+        public static List<Serie> listSerie(){ //list of Series
         //Create a ArrayList of Series
         List<Serie> liSerie = new ArrayList<Serie>();
         try {
             //open the connection with DB
             Connection conn = Connect.getConnection();
             //SQL query
-            String sql = "SELECT * FROM Serie";
+            String sql = "SELECT Series.title, Series.year, Category.name as category, "
+                    + "Category.type FROM Series " +
+                    "inner join Category on Series.idCategory = Category.id;";
             //create the search statement inside the DB and show the result
             Statement st = conn.createStatement();
             //Result
             ResultSet res = st.executeQuery(sql);
             while(res.next()){ //while there is any register
                 Category cat = new Category(); //built a category
-                cat.setName(res.getString("category"));
+                cat.setId(res.getInt("id"));
+                cat.setName(res.getString("idCategory"));
+                cat.setType(res.getString("type").charAt(0));
                 
                 Serie se = new Serie(cat); //Associates the Category to the Serie
                 se.setTitle(res.getString("title"));
