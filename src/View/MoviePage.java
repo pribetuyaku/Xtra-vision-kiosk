@@ -285,7 +285,7 @@ public class MoviePage extends javax.swing.JFrame {
 
     private void txtDescriptionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescriptionCaretUpdate
         // update the search and show the images according the one selected
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\series\\" + txtDescription.getText()+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\movies\\" + txtDescription.getText()+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
         lblMovieImg.setIcon(imageIcon);
     }//GEN-LAST:event_txtDescriptionCaretUpdate
 
