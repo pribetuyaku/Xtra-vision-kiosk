@@ -15,6 +15,7 @@ public class WelcomePage extends javax.swing.JFrame {
     public WelcomePage() {
         initComponents();
         setSize(529, 352);
+        
     }
 
     /**

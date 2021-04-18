@@ -47,13 +47,7 @@ public class Category {
 
     @Override //show the result as String
     public String toString() {
-        return "\n" + "Category"
-                +"\n" + "ID: " + id +
-                "\n" + ", Name: " + name +
-                "\n" + ", Type: " + type;
-    }
-
- 
-   
-    
+        return name;
+    }  
+  
 }

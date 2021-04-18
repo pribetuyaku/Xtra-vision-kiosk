@@ -101,4 +101,28 @@ public class CategoryDAO {
         }
         return categories;
     }
+    
+    public static ArrayList<Category> ListCategoryType(char type){ //list all the categories from the Database
+        ArrayList<Category> categories = new ArrayList<Category>();
+        try {
+            Connection con = Connect.getConnection();
+            String sql = "SELECT * FROM Category WHERE type = ?";
+            PreparedStatement command = con.prepareStatement(sql); // to excute the Database command with parameters
+            command.setString(1, String.valueOf(type));
+            //Result 
+            ResultSet result = command.executeQuery();
+            while(result.next()){
+                Category c = new Category();
+                c.setId(result.getInt("id"));
+                c.setName(result.getString("name"));
+                c.setType(type);
+                categories.add(c);
+            }
+            result.close();
+            command.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return categories;
+    }
 }

@@ -16,6 +16,7 @@ import java.util.List;
  * @author Betuyaku
  */
 public class MovieDAO {
+    private List<Movie> listMovie;
     //method insert movie into the DB
     public static boolean insertMovie (Movie movie){
         try {
@@ -55,24 +56,71 @@ public class MovieDAO {
             return false;
         } 
     }
+    
+        public static boolean updateMovie(Movie movie){
+        try {
+            //open the connection
+            Connection connecta = Connect.getConnection();
+            //SQL query
+            String sql = "UPDATE Movie SET "
+                    + "(title=?, description=?, price=?, nRentDays=? "
+                    + "category=?, year=?"
+                    + "WHERE id=?)";
+            PreparedStatement ps = connecta.prepareStatement(sql);
+            ps.setString(1, movie.getTitle());
+            ps.setString(2, movie.getDescription());
+            ps.setDouble(3, movie.getPrice());
+            ps.setInt(4, movie.getnRentDays());
+            ps.setString(5, movie.getCategory().getName());
+            ps.setInt(6, movie.getYear());
+            ps.setInt(7, movie.getId());
+            //execute and update
+            int result = ps.executeUpdate();
+            //close the connection
+            ps.close();
+            return result > 0; //if the result is greater than 0(true) so the update was done
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        } 
+    }
+    
     public static List<Movie> listMovie(){
+        //Create a ArrayList of Movies
         List<Movie> liMovie = new ArrayList<Movie>();
-        //list all the movies from the Database
-            try {
+        try {
+            //open the connection with DB
             Connection con = Connect.getConnection();
-            String sql = "SELECT * FROM Movie";
-            Statement st = con.createStatement(); // to excute the Database command without any parameters
+            //SQL Query
+            String sql = "SELECT Movie.title, Movie.year, Category.name as category, " 
+                    + "Category.type FROM Movie " +
+                    "inner join Category on Movie.idCategory = Category.id";
+            // to excute the Database command without any parameters
+            Statement st = con.createStatement(); 
             //Result 
             ResultSet result = st.executeQuery(sql);
-            while(result.next()){
-                Category category = new Category();
-                category.setId(result.getInt(""));
+            while(result.next()){//while there is any register
+                Category categ = new Category();//built a category
+                categ.setId(result.getInt("id"));
+                categ.setName(result.getString("idCategory"));
+                categ.setType(result.getString("type").charAt(0));
+                
+                Movie mv = new Movie(categ);//Associates the Category to the Movie
+                mv.setTitle(result.getString("title"));
+                mv.setDescription(result.getString("description"));
+                mv.setPrice(result.getDouble("price"));
+                mv.setYear(result.getInt("year"));
+                mv.setnRentDays(result.getInt("nRentDays"));
+                
+                //add this Movie inside my llistMovie
+                liMovie.add(mv);
+                
             }
             result.close();
-            command.close();
+            st.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return movie;
+        return liMovie;
     }
 }

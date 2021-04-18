@@ -97,7 +97,7 @@ public class SerieDAO {
             //SQL query
             String sql = "SELECT Series.title, Series.year, Category.name as category, "
                     + "Category.type FROM Series " +
-                    "inner join Category on Series.idCategory = Category.id;";
+                    "inner join Category on Series.idCategory = Category.id";
             //create the search statement inside the DB and show the result
             Statement st = conn.createStatement();
             //Result
@@ -117,8 +117,9 @@ public class SerieDAO {
                 
                 //add this Serie inside my listSerie
                 liSerie.add(se);
-             } res.close();
-             st.close();
+             } 
+                res.close();
+                st.close();
         } catch (Exception e) {
             System.out.println(e);
         } return liSerie;
