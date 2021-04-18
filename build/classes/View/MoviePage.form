@@ -56,7 +56,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnCartMovie" max="32767" attributes="0"/>
-                          <Component id="btnRentMovie" pref="105" max="32767" attributes="0"/>
+                          <Component id="btnRentMovie" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -238,7 +238,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnCartMovie">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CART"/>
+        <Property name="text" type="java.lang.String" value="SEE your CART"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCartMovieActionPerformed"/>
@@ -246,8 +246,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRentMovie">
       <Properties>
-        <Property name="text" type="java.lang.String" value="RENT"/>
+        <Property name="text" type="java.lang.String" value="ADD to CART"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRentMovieActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -128,14 +128,19 @@ public class MoviePage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(txtDescription);
 
-        btnCartMovie.setText("CART");
+        btnCartMovie.setText("SEE your CART");
         btnCartMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCartMovieActionPerformed(evt);
             }
         });
 
-        btnRentMovie.setText("RENT");
+        btnRentMovie.setText("ADD to CART");
+        btnRentMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRentMovieActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -170,7 +175,7 @@ public class MoviePage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRentMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))))
+                            .addComponent(btnRentMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -217,7 +222,9 @@ public class MoviePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartMovieActionPerformed
-        // TODO add your handling code here:
+        // When the button Cart is clicked open the Cart Screen
+        new Cart().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnCartMovieActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
@@ -292,6 +299,11 @@ public class MoviePage extends javax.swing.JFrame {
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoryActionPerformed
+
+    private void btnRentMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentMovieActionPerformed
+        new Payment().setVisible(true); //show the Payment when the button is clicked
+        dispose(); //close the current screen
+    }//GEN-LAST:event_btnRentMovieActionPerformed
  
     public void searchMovie(){
         //Connect to the DB

@@ -15,7 +15,7 @@ public class WelcomePage extends javax.swing.JFrame {
     public WelcomePage() {
         initComponents();
         setSize(529, 352);
-        
+        setDefaultCloseOperation(WelcomePage.EXIT_ON_CLOSE);
     }
 
     /**
@@ -130,7 +130,7 @@ public class WelcomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_jRentButtonActionPerformed
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
-      
+      setDefaultCloseOperation(WelcomePage.EXIT_ON_CLOSE);
     }//GEN-LAST:event_jExitActionPerformed
 
     /**

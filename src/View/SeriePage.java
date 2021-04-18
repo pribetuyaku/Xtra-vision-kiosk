@@ -3,20 +3,22 @@ package View;
 
 import DAO.CategoryDAO;
 import DAO.Connect;
+import Model.Serie;
 import Model.Category;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Betuyaku
  */
 public class SeriePage extends javax.swing.JFrame {
-
+   
     /**
      * Creates new form SeriePage
      */
@@ -26,6 +28,7 @@ public class SeriePage extends javax.swing.JFrame {
         for (Category c: CategoryDAO.ListCategoryType('S')){
             cmbCategory.addItem(c.getName());
         }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -80,6 +83,11 @@ public class SeriePage extends javax.swing.JFrame {
 
         jLabel1.setText("Category:");
 
+        cmbCategory.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCategoryItemStateChanged(evt);
+            }
+        });
         cmbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoryActionPerformed(evt);
@@ -91,22 +99,6 @@ public class SeriePage extends javax.swing.JFrame {
             }
         });
 
-        tblSerie.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title", "Category", "Year"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         tblSerie.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblSerie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,6 +106,7 @@ public class SeriePage extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblSerie);
+        tblSerie.getAccessibleContext().setAccessibleParent(cmbCategory);
 
         btnShowAll.setText("SHOW ALL");
         btnShowAll.addActionListener(new java.awt.event.ActionListener() {
@@ -140,14 +133,19 @@ public class SeriePage extends javax.swing.JFrame {
 
         jLabel2.setText("Description:");
 
-        btnCart.setText("CART");
+        btnCart.setText("SEE your CART");
         btnCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCartActionPerformed(evt);
             }
         });
 
-        btnRent.setText("RENT");
+        btnRent.setText("ADD to CART");
+        btnRent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRentActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,7 +274,7 @@ public class SeriePage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchCaretUpdate
 
     private void txtDescriptionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyReleased
-        // show description
+     
         
     }//GEN-LAST:event_txtDescriptionKeyReleased
 
@@ -320,7 +318,17 @@ public class SeriePage extends javax.swing.JFrame {
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoryActionPerformed
-    
+
+    private void cmbCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCategoryItemStateChanged
+//        String query = cmbCategory.getSelectedItem().toString();
+//        filter(query);
+    }//GEN-LAST:event_cmbCategoryItemStateChanged
+
+    private void btnRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentActionPerformed
+        new Payment().setVisible(true); //show the Payment when the button is clicked
+        dispose(); //close the current screen
+    }//GEN-LAST:event_btnRentActionPerformed
+   
     public void searchSerie(){
         try { // Connect to the DB
             Connection con = Connect.getConnection();
@@ -330,12 +338,13 @@ public class SeriePage extends javax.swing.JFrame {
             Statement command = con.createStatement(); // to excute the Database command without any parameters 
             //Result 
             ResultSet result = command.executeQuery(sql);
-        //Show the search resuts
-            DefaultTableModel model;
-            model = (DefaultTableModel) tblSerie.getModel();
-            model.setNumRows(0);
+            //Show the search resuts
+            DefaultTableModel tbmodel;
+            //get the table model
+            tbmodel = (DefaultTableModel) tblSerie.getModel();
+            tbmodel.setNumRows(0);
                 while(result.next()){
-                    model.addRow(new Object[]{
+                    tbmodel.addRow(new Object[]{
                     result.getString("Title"),
                     result.getString("Category"),
                     result.getString("Year"),
