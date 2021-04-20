@@ -6,6 +6,7 @@ import DAO.CategoryDAO;
 import Model.Category;
 import java.awt.Image;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,8 +50,8 @@ public class MoviePage extends javax.swing.JFrame {
         lblDescription = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
-        btnCartMovie = new javax.swing.JButton();
-        btnRentMovie = new javax.swing.JButton();
+        cartMovieButton = new javax.swing.JButton();
+        rentMovieButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -128,17 +129,17 @@ public class MoviePage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(txtDescription);
 
-        btnCartMovie.setText("SEE your CART");
-        btnCartMovie.addActionListener(new java.awt.event.ActionListener() {
+        cartMovieButton.setText("SEE your CART");
+        cartMovieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCartMovieActionPerformed(evt);
+                cartMovieButtonActionPerformed(evt);
             }
         });
 
-        btnRentMovie.setText("ADD to CART");
-        btnRentMovie.addActionListener(new java.awt.event.ActionListener() {
+        rentMovieButton.setText("ADD to CART");
+        rentMovieButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRentMovieActionPerformed(evt);
+                rentMovieButtonActionPerformed(evt);
             }
         });
 
@@ -174,8 +175,8 @@ public class MoviePage extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRentMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cartMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rentMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -206,9 +207,9 @@ public class MoviePage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cartMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRentMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(rentMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -221,11 +222,11 @@ public class MoviePage extends javax.swing.JFrame {
         dispose(); //close the current screen
     }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void btnCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartMovieActionPerformed
+    private void cartMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartMovieButtonActionPerformed
         // When the button Cart is clicked open the Cart Screen
         new Cart().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnCartMovieActionPerformed
+    }//GEN-LAST:event_cartMovieButtonActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         // Search Button
@@ -300,10 +301,16 @@ public class MoviePage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoryActionPerformed
 
-    private void btnRentMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentMovieActionPerformed
-        new Payment().setVisible(true); //show the Payment when the button is clicked
-        dispose(); //close the current screen
-    }//GEN-LAST:event_btnRentMovieActionPerformed
+    private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
+         getSelected(tblMovie.getSelectedRow());
+        //instanciate the variable cart
+        Cart cart = new Cart();
+
+        // show the cart page
+        new Cart().setVisible(true);
+        //closing the SeriePage
+        dispose();
+    }//GEN-LAST:event_rentMovieButtonActionPerformed
  
     public void searchMovie(){
         //Connect to the DB
@@ -365,10 +372,9 @@ public class MoviePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCartMovie;
     private javax.swing.JButton btnHome;
-    private javax.swing.JButton btnRentMovie;
     private javax.swing.JButton btnShow;
+    private javax.swing.JButton cartMovieButton;
     private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -379,8 +385,60 @@ public class MoviePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblMovieImg;
     private javax.swing.JLabel lblSearch;
+    private javax.swing.JButton rentMovieButton;
     private javax.swing.JTable tblMovie;
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+private void getSelected(int selectedRow) {
+
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "SELECT Movie.title, Category.name as category, price FROM Priscilla_2019217.Movie\n"
+                    + "inner join Category on Movie.idCategory = Category.id\n"
+                    + "where idMovie =" + (selectedRow + 1) + ";";
+
+            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
+
+            //Result 
+            ResultSet result = ps.executeQuery(sql);
+            //Show the search resuts
+
+            while (result.next()) {
+                title = result.getString("title");
+                category = result.getString("category");
+                price = result.getDouble("price");
+            }
+            System.out.println(title + category + price);
+            //inserting data into the table
+            insertSelected(title, category, price);
+        } catch (Exception e) {
+//            System.out.println("Test vem aki"+e);
+        }
+    }
+    //declaring the variables
+    private String title;
+    private String category;
+    private double price;
+
+    private void insertSelected(String title, String category, double price) {
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "insert into cart (title, category, price)"
+                    + "values (?,?,?);";
+
+            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
+
+            ps.setString(1, title);
+            ps.setString(2, category);
+            ps.setDouble(3, price);
+            ps.execute();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
 }

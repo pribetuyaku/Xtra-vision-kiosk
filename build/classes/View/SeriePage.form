@@ -31,8 +31,8 @@
                       <Component id="jScrollPane2" min="-2" pref="325" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnCart" max="32767" attributes="0"/>
-                          <Component id="btnRent" max="32767" attributes="0"/>
+                          <Component id="cartButton" max="32767" attributes="0"/>
+                          <Component id="rentButton" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -94,9 +94,9 @@
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="btnCart" min="-2" max="-2" attributes="0"/>
+                      <Component id="cartButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnRent" min="-2" max="-2" attributes="0"/>
+                      <Component id="rentButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
               </Group>
@@ -174,6 +174,13 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tblSerie">
           <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="3" rowCount="0">
+                <Column editable="false" title="Title" type="java.lang.Object"/>
+                <Column editable="false" title="Category" type="java.lang.Object"/>
+                <Column editable="false" title="Year" type="java.lang.Object"/>
+              </Table>
+            </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0"/>
             </Property>
@@ -233,20 +240,20 @@
         <Property name="text" type="java.lang.String" value="Description:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCart">
+    <Component class="javax.swing.JButton" name="cartButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="SEE your CART"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCartActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cartButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRent">
+    <Component class="javax.swing.JButton" name="rentButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="ADD to CART"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRentActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rentButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -55,8 +55,8 @@
                       <Component id="jScrollPane2" min="-2" pref="337" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnCartMovie" max="32767" attributes="0"/>
-                          <Component id="btnRentMovie" max="32767" attributes="0"/>
+                          <Component id="cartMovieButton" max="32767" attributes="0"/>
+                          <Component id="rentMovieButton" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -95,9 +95,9 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane2" min="-2" pref="61" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="btnCartMovie" max="32767" attributes="0"/>
+                      <Component id="cartMovieButton" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnRentMovie" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="rentMovieButton" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -236,20 +236,20 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnCartMovie">
+    <Component class="javax.swing.JButton" name="cartMovieButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="SEE your CART"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCartMovieActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cartMovieButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRentMovie">
+    <Component class="javax.swing.JButton" name="rentMovieButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="ADD to CART"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRentMovieActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rentMovieButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

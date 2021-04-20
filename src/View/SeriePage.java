@@ -7,6 +7,7 @@ import Model.Serie;
 import Model.Category;
 import java.awt.Image;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -23,14 +24,16 @@ public class SeriePage extends javax.swing.JFrame {
      * Creates new form SeriePage
      */
     public SeriePage() {
-        initComponents();
+       initComponents();
         //to list the Categories inside the combobox (only for Series)
         for (Category c: CategoryDAO.ListCategoryType('S')){
             cmbCategory.addItem(c.getName());
         }
         
     }
-
+    
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -50,8 +53,8 @@ public class SeriePage extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        btnCart = new javax.swing.JButton();
-        btnRent = new javax.swing.JButton();
+        cartButton = new javax.swing.JButton();
+        rentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -99,6 +102,22 @@ public class SeriePage extends javax.swing.JFrame {
             }
         });
 
+        tblSerie.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title", "Category", "Year"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblSerie.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblSerie.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,17 +152,17 @@ public class SeriePage extends javax.swing.JFrame {
 
         jLabel2.setText("Description:");
 
-        btnCart.setText("SEE your CART");
-        btnCart.addActionListener(new java.awt.event.ActionListener() {
+        cartButton.setText("SEE your CART");
+        cartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCartActionPerformed(evt);
+                cartButtonActionPerformed(evt);
             }
         });
 
-        btnRent.setText("ADD to CART");
-        btnRent.addActionListener(new java.awt.event.ActionListener() {
+        rentButton.setText("ADD to CART");
+        rentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRentActionPerformed(evt);
+                rentButtonActionPerformed(evt);
             }
         });
 
@@ -158,8 +177,8 @@ public class SeriePage extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel2)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -210,9 +229,9 @@ public class SeriePage extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCart)
+                        .addComponent(cartButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRent))
+                        .addComponent(rentButton))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -224,16 +243,18 @@ public class SeriePage extends javax.swing.JFrame {
     private void jHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHomeButtonActionPerformed
         new WelcomePage().setVisible(true); //show the WelcomePage when the button is clicked
         dispose(); //close the current screen
+        
     }//GEN-LAST:event_jHomeButtonActionPerformed
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
         // Search Button
-        searchSerie();
+         searchSerie();
+          System.out.println("algo");
     }//GEN-LAST:event_btnShowAllActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // Show the Series while the user is typing
-        try { //Connect to the DB
+         try { //Connect to the DB
             Connection con = Connect.getConnection();
             //
             String sql = "SELECT Series.title, Series.year, Category.name as category, "
@@ -264,7 +285,7 @@ public class SeriePage extends javax.swing.JFrame {
 
     private void tblSerieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSerieMouseClicked
         
-        int line = tblSerie.getSelectedRow();
+         int line = tblSerie.getSelectedRow();
         txtDescription.setText(tblSerie.getValueAt(line, 0).toString());
     }//GEN-LAST:event_tblSerieMouseClicked
 
@@ -309,11 +330,11 @@ public class SeriePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbCategoryKeyReleased
 
-    private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
+    private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
         // When the button Cart is clicked open the Cart Screen
         new Cart().setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnCartActionPerformed
+    }//GEN-LAST:event_cartButtonActionPerformed
 
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
@@ -324,17 +345,23 @@ public class SeriePage extends javax.swing.JFrame {
 //        filter(query);
     }//GEN-LAST:event_cmbCategoryItemStateChanged
 
-    private void btnRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentActionPerformed
-        new Payment().setVisible(true); //show the Payment when the button is clicked
-        dispose(); //close the current screen
-    }//GEN-LAST:event_btnRentActionPerformed
+    private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
+        getSelected(tblSerie.getSelectedRow());
+        //instanciate the variable cart
+        Cart cart = new Cart();
+
+        // show the cart page
+        new Cart().setVisible(true);
+        //closing the SeriePage
+        dispose();
+    }//GEN-LAST:event_rentButtonActionPerformed
    
     public void searchSerie(){
         try { // Connect to the DB
             Connection con = Connect.getConnection();
-            String sql = "SELECT Series.title, Series.year, Category.name as category, "
-                    + "Category.type FROM Series " +
-            "inner join Category on Series.idCategory = Category.id";
+           String sql = "SELECT Series.title, Series.year, Category.name as category, "
+                    + "Category.type FROM Series "
+                    + "inner join Category on Series.idCategory = Category.id";
             Statement command = con.createStatement(); // to excute the Database command without any parameters 
             //Result 
             ResultSet result = command.executeQuery(sql);
@@ -388,9 +415,8 @@ public class SeriePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCart;
-    private javax.swing.JButton btnRent;
     private javax.swing.JButton btnShowAll;
+    private javax.swing.JButton cartButton;
     private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JButton jHomeButton;
     private javax.swing.JLabel jLabel1;
@@ -402,8 +428,59 @@ public class SeriePage extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jSerie;
     private javax.swing.JLabel lblSerieImage;
+    private javax.swing.JButton rentButton;
     private javax.swing.JTable tblSerie;
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+private void getSelected(int selectedRow) {
+
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "SELECT title, Category.name as category, price FROM Priscilla_2019217.Series\n"
+                    + "inner join Category on Series.idCategory = Category.id\n"
+                    + "where idSeries =" + (selectedRow + 1) + ";";
+
+            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
+
+            //Result 
+            ResultSet result = ps.executeQuery(sql);
+            //Show the search resuts
+
+            while (result.next()) {
+                title = result.getString("title");
+                category = result.getString("category");
+                price = result.getDouble("price");
+            }
+            System.out.println(title + category + price);
+            //inserting data into the table
+            insertSelected(title, category, price);
+        } catch (Exception e) {
+//            System.out.println("Test vem aki"+e);
+        }
+    }
+    //declaring the variables
+    private String title;
+    private String category;
+    private double price;
+
+    private void insertSelected(String title, String category, double price) {
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "insert into cart (title, category, price)"
+                    + "values (?,?,?);";
+
+            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
+
+            ps.setString(1, title);
+            ps.setString(2, category);
+            ps.setDouble(3, price);
+            ps.execute();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
 }
