@@ -82,6 +82,11 @@ public class WelcomePage extends javax.swing.JFrame {
 
         jReturnButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jReturnButton.setText("RETURN");
+        jReturnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jReturnButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(jReturnButton);
         jReturnButton.setBounds(260, 200, 90, 40);
 
@@ -94,6 +99,11 @@ public class WelcomePage extends javax.swing.JFrame {
 
         jCart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/icons/baseline_shopping_cart_black_24dp.png"))); // NOI18N
         jCart.setText("Cart");
+        jCart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCartMouseClicked(evt);
+            }
+        });
         jMenuFile.add(jCart);
 
         jExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/images/icons/baseline_exit_to_app_black_24dp.png"))); // NOI18N
@@ -132,6 +142,26 @@ public class WelcomePage extends javax.swing.JFrame {
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
       setDefaultCloseOperation(WelcomePage.EXIT_ON_CLOSE);
     }//GEN-LAST:event_jExitActionPerformed
+
+    private void jReturnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jReturnButtonActionPerformed
+        // show a joptionpane dialog using showConfirmDialog
+        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\checked.png");
+        int input = JOptionPane.showConfirmDialog(null, 
+                " Verify that case is snapped closed properly." 
+                + " Insert the case below green arrow on machine.", "RETURN", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
+        // 0=ok 2=cancel
+        if(input == 0){ //if the option selected was ok
+            new ReturnPage().setVisible(true);
+            dispose();
+        } 
+
+    }//GEN-LAST:event_jReturnButtonActionPerformed
+
+    private void jCartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCartMouseClicked
+        // open the Cart
+        new Cart().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jCartMouseClicked
 
     /**
      * @param args the command line arguments

@@ -54,7 +54,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Your Bill:");
 
-        valueRent.setText("0.0");
+        valueRent.setText("€ ");
 
         lblCVV.setText("CVV:");
 
@@ -92,8 +92,8 @@ public class Payment extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
-                            .addGap(26, 26, 26)
-                            .addComponent(valueRent)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(valueRent, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(40, 40, 40))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -166,8 +166,8 @@ public class Payment extends javax.swing.JFrame {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         try { // Connect to the DB and insert data into my database
             Connection con = Connect.getConnection();
-            String sql = "insert into User (email, cardNumber, validCard)\n"
-                    + "values(?,?,?);";
+            String sql = "insert into User (email, cardNumber, validCard)"
+                    + "values(?,?,?)";
 
             PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
             // inserting data to my DB
