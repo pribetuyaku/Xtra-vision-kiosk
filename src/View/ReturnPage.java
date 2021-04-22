@@ -6,6 +6,12 @@
 
 package View;
 
+import DAO.Connect;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author User
@@ -49,6 +55,17 @@ public class ReturnPage extends javax.swing.JFrame {
         });
 
         lblDVDTitle.setText("Select the DVD you rented:");
+
+        cmbDVD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDVDActionPerformed(evt);
+            }
+        });
+        cmbDVD.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cmbDVDKeyReleased(evt);
+            }
+        });
 
         lblDVDid.setText("Type the ID number in DVD case:");
 
@@ -107,6 +124,38 @@ public class ReturnPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmbDVDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbDVDKeyReleased
+        // Show the Series and movies inside the DB
+        try { //Connect to the DB
+            Connection con = Connect.getConnection();
+            //
+            String sql = "SELECT Series.title, Series.year, Category.name as category, "
+                    + "Category.type FROM Series \n" +
+            "inner join Category on Series.idCategory = Category.id "
+                    + "WHERE title like '%"+cmbDVD.getModel()+"%'";
+            Statement command = con.createStatement(); //to excute the Database command without any parameters
+            //Result 
+            ResultSet result = command.executeQuery(sql);
+        //Show the search resuts
+            DefaultTableModel model;
+            model = (DefaultTableModel) cmbDVD.getModel();
+            model.setNumRows(0);
+                while(result.next()){
+                    model.addRow(new Object[]{
+                    result.getString("Title"),
+                    result.getString("Category"),
+                    result.getString("Year"),
+                    });
+                }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_cmbDVDKeyReleased
+
+    private void cmbDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDVDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDVDActionPerformed
 
     /**
      * @param args the command line arguments

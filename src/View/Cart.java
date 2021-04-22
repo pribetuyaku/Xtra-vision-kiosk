@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -182,13 +184,21 @@ public class Cart extends javax.swing.JFrame {
         //Opening Payment Screen
         new Payment().setVisible(true);
         //Bringing the taking the total
-           pay.setValue(total);
+        pay.setValue(total);
         //Closing the current window
         dispose();
     }//GEN-LAST:event_paymentButtonActionPerformed
 
     private void emptyCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emptyCartButtonActionPerformed
-        emptyCart();
+        // show a joptionpane dialog using showConfirmDialog
+        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\doubt.png");
+        int input = JOptionPane.showConfirmDialog(null, 
+                "Are you sure do want to clear your cart?", "CLEAR MY CART", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
+        // 0=ok 2=cancel
+        if(input == 0){ //if the option selected was ok
+            emptyCart();
+        } 
+        
     }//GEN-LAST:event_emptyCartButtonActionPerformed
 
     private void BackToMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToMovieActionPerformed
@@ -196,9 +206,7 @@ public class Cart extends javax.swing.JFrame {
        dispose();//close the current screen
     }//GEN-LAST:event_BackToMovieActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -294,8 +302,8 @@ private void showTotal() {
             Connection con = Connect.getConnection();
             //SQL query delet
             String sql = "DELETE FROM cart";
-
-            PreparedStatement ps = con.prepareStatement(sql);// to excute the Database command without any parameters
+            // to excute the Database command without any parameters
+            PreparedStatement ps = con.prepareStatement(sql);
             //executing
             ps.execute();
             showSelecteds();

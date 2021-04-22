@@ -249,7 +249,7 @@ public class SeriePage extends javax.swing.JFrame {
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
         // Search Button
          searchSerie();
-          System.out.println("algo");
+        
     }//GEN-LAST:event_btnShowAllActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
@@ -306,7 +306,7 @@ public class SeriePage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescriptionCaretUpdate
 
     private void cmbCategoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCategoryKeyReleased
-         // Show the Series, using the filter Category
+        // Show the Series, using the filter Category
         try { //Connect to the DB
             Connection con = Connect.getConnection();
             //
@@ -457,7 +457,7 @@ private void getSelected(int selectedRow) {
             //inserting data into the table
             insertSelected(title, category, price);
         } catch (Exception e) {
-//            System.out.println("Test vem aki"+e);
+
         }
     }
     //declaring the variables

@@ -28,7 +28,6 @@
               <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="75" max="-2" attributes="0"/>
                       <Component id="lblDate" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
@@ -48,13 +47,10 @@
                               <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                               <Component id="cardNumberTxt" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblCVV" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtCVV" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="validDate" min="-2" pref="83" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtCVV" alignment="0" min="-2" pref="48" max="-2" attributes="0"/>
                               <Component id="jEmailLabel" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="validDate" alignment="1" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="backButton" min="-2" max="-2" attributes="0"/>
@@ -128,6 +124,7 @@
     <Component class="javax.swing.JTextField" name="cardNumberTxt">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cardNumberTxtActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cardNumberTxtKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -154,8 +151,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="EXPIRED DATE:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="validDate">
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
       <Properties>
@@ -187,6 +182,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Your receipt by email:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="validDate">
     </Component>
   </SubComponents>
 </Form>

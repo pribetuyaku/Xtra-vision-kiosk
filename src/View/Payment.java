@@ -3,6 +3,11 @@ package View;
 import DAO.Connect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -30,12 +35,12 @@ public class Payment extends javax.swing.JFrame {
         lblCVV = new javax.swing.JLabel();
         txtCVV = new javax.swing.JTextField();
         lblDate = new javax.swing.JLabel();
-        validDate = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
         submitButton = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         emailTxt = new javax.swing.JTextField();
         jEmailLabel = new javax.swing.JLabel();
+        validDate = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -48,6 +53,11 @@ public class Payment extends javax.swing.JFrame {
         cardNumberTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cardNumberTxtActionPerformed(evt);
+            }
+        });
+        cardNumberTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cardNumberTxtKeyTyped(evt);
             }
         });
 
@@ -86,7 +96,6 @@ public class Payment extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblDate)
                         .addGap(12, 12, 12))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,11 +113,9 @@ public class Payment extends javax.swing.JFrame {
                                 .addComponent(jSeparator1)
                                 .addComponent(cardNumberTxt)
                                 .addComponent(lblCVV)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(txtCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(validDate, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(validDate, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(backButton)
                             .addGap(18, 18, 18)
@@ -155,6 +162,7 @@ public class Payment extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+ 
     private void cardNumberTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cardNumberTxtActionPerformed
@@ -163,14 +171,30 @@ public class Payment extends javax.swing.JFrame {
         new Cart().setVisible(true); //show the Cart when the button is clicked
         dispose(); //close the current screen
     }//GEN-LAST:event_backButtonActionPerformed
-
+    
+    //method to valid the email
+ 
+    public static boolean isValidEmail(String email){
+       boolean isEmailValid = false;
+       if (email!= null && email.length() > 0){
+           String checker = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+           Pattern pattern = Pattern.compile(checker, Pattern.CASE_INSENSITIVE);
+           Matcher matcher = pattern.matcher(email);
+           if (matcher.matches()){
+               isEmailValid = true;
+           }
+        }
+        return isEmailValid;
+    }
+    
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        
         try { // Connect to the DB and insert data into my database
             Connection con = Connect.getConnection();
-            String sql = "insert into User (email, cardNumber, validCard)"
+            String sql = "INSERT into User (email, cardNumber, validCard)"
                     + "values(?,?,?)";
-
-            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
+            // to excute the Database command without any parameters
+            PreparedStatement ps = con.prepareStatement(sql); 
             // inserting data to my DB
             ps.setString(1, emailTxt.getText());
             ps.setLong(2, Long.parseLong(cardNumberTxt.getText()));
@@ -181,13 +205,30 @@ public class Payment extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
+        // show a joptionpane to confim the rent
+        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\card.png");
+        int input = JOptionPane.showConfirmDialog(null, 
+                "Thanks for your purchase! See you soon!", "PAYMENT PROCESSED", 
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
+        dispose();
+        
     }//GEN-LAST:event_submitButtonActionPerformed
-         public void setValue(double value) {
+
+   
+    private void cardNumberTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTxtKeyTyped
+        //Accept only numbers
+                String caracteres="0987654321";
+                //if the character in this event is not on the list 
+                if(!caracteres.contains(evt.getKeyChar()+"")){
+                evt.consume();
+                } //add this property to delete this event 
+                
+    }//GEN-LAST:event_cardNumberTxtKeyTyped
+        public void setValue(double value) {
         this.total = value;
     }
-    /**
-     * @param args the command line arguments
-     */
+         
+    //main method
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -235,7 +276,7 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel lblPayment;
     private javax.swing.JButton submitButton;
     private javax.swing.JTextField txtCVV;
-    private javax.swing.JTextField validDate;
+    private javax.swing.JFormattedTextField validDate;
     private javax.swing.JLabel valueRent;
     // End of variables declaration//GEN-END:variables
 
