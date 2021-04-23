@@ -3,15 +3,12 @@ package View;
 
 import DAO.CategoryDAO;
 import DAO.Connect;
-import Model.Serie;
 import Model.Category;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -41,7 +38,7 @@ public class SeriePage extends javax.swing.JFrame {
         jSerie = new javax.swing.JLabel();
         lblSerieImage = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jHomeButton = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
         jSearch = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -53,8 +50,8 @@ public class SeriePage extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        cartButton = new javax.swing.JButton();
-        rentButton = new javax.swing.JButton();
+        btnCart = new javax.swing.JButton();
+        btnRent = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -62,11 +59,11 @@ public class SeriePage extends javax.swing.JFrame {
         jSerie.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jSerie.setText("PICK YOUR SERIE");
 
-        jHomeButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jHomeButton.setText("HOME");
-        jHomeButton.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnHome.setText("HOME");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jHomeButtonActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
 
@@ -125,7 +122,6 @@ public class SeriePage extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tblSerie);
-        tblSerie.getAccessibleContext().setAccessibleParent(cmbCategory);
 
         btnShowAll.setText("SHOW ALL");
         btnShowAll.addActionListener(new java.awt.event.ActionListener() {
@@ -152,17 +148,17 @@ public class SeriePage extends javax.swing.JFrame {
 
         jLabel2.setText("Description:");
 
-        cartButton.setText("SEE your CART");
-        cartButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCart.setText("SEE your CART");
+        btnCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartButtonActionPerformed(evt);
+                btnCartActionPerformed(evt);
             }
         });
 
-        rentButton.setText("ADD to CART");
-        rentButton.addActionListener(new java.awt.event.ActionListener() {
+        btnRent.setText("ADD to CART");
+        btnRent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rentButtonActionPerformed(evt);
+                btnRentActionPerformed(evt);
             }
         });
 
@@ -177,8 +173,8 @@ public class SeriePage extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel2)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -195,7 +191,7 @@ public class SeriePage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSerie)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jHomeButton))
+                        .addComponent(btnHome))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -208,7 +204,7 @@ public class SeriePage extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jSerie)
-                    .addComponent(jHomeButton))
+                    .addComponent(btnHome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
@@ -229,9 +225,9 @@ public class SeriePage extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cartButton)
+                        .addComponent(btnCart)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rentButton))
+                        .addComponent(btnRent))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
@@ -240,11 +236,11 @@ public class SeriePage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHomeButtonActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         new WelcomePage().setVisible(true); //show the WelcomePage when the button is clicked
         dispose(); //close the current screen
         
-    }//GEN-LAST:event_jHomeButtonActionPerformed
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
         // Search Button
@@ -264,7 +260,7 @@ public class SeriePage extends javax.swing.JFrame {
             Statement command = con.createStatement(); //to excute the Database command without any parameters
             //Result 
             ResultSet result = command.executeQuery(sql);
-        //Show the search resuts
+            //Show the search resuts
             DefaultTableModel model;
             model = (DefaultTableModel) tblSerie.getModel();
             model.setNumRows(0);
@@ -278,14 +274,11 @@ public class SeriePage extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
-             
-        
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void tblSerieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSerieMouseClicked
         
-         int line = tblSerie.getSelectedRow();
+        int line = tblSerie.getSelectedRow();
         txtDescription.setText(tblSerie.getValueAt(line, 0).toString());
     }//GEN-LAST:event_tblSerieMouseClicked
 
@@ -307,10 +300,19 @@ public class SeriePage extends javax.swing.JFrame {
 
     private void cmbCategoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCategoryKeyReleased
         // Show the Series, using the filter Category
+        int categoryId = 0;
+        switch ( cmbCategory.getSelectedIndex() ){
+            case 1:
+                categoryId = 6;
+                break;
+        }
         try { //Connect to the DB
             Connection con = Connect.getConnection();
-            //
-            String sql = "SELECT * FROM Category WHERE name like '%" + cmbCategory.getSelectedItem() + "%' ";
+            //SQL query
+            String sql = "SELECT Series.title, Series.year, Category.name as category, " 
+                    + "Category.type FROM Series "
+                    + " inner join Category on Series.idCategory = Category.id "
+                    + "where Series.idCategory = idCategory;";
             Statement command = con.createStatement(); //to excute the Database command without any parameters
             //Result 
             ResultSet result = command.executeQuery(sql);
@@ -330,22 +332,59 @@ public class SeriePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbCategoryKeyReleased
 
-    private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
+    private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
         // When the button Cart is clicked open the Cart Screen
         new Cart().setVisible(true);
         dispose();
-    }//GEN-LAST:event_cartButtonActionPerformed
+    }//GEN-LAST:event_btnCartActionPerformed
 
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoryActionPerformed
 
     private void cmbCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCategoryItemStateChanged
-//        String query = cmbCategory.getSelectedItem().toString();
-//        filter(query);
+        // Show the Series, using the filter Category
+        int categoryId = 0;
+        switch ( cmbCategory.getSelectedIndex() ){
+            case 0:
+                categoryId = 6;
+                break;
+            case 1:
+                categoryId = 14;
+                break;
+            case 2:
+                categoryId = 15;
+                break;
+            case 3:
+                categoryId = 16;
+                break;
+        }
+        try {
+             Connection con = Connect.getConnection();
+        String sql = "SELECT Series.title, Series.year, Category.name as category, " 
+                    + "Category.type FROM Series "
+                    + " inner join Category on Series.idCategory = Category.id "
+                    + "where Series.idCategory = " + categoryId +";";
+            Statement comm = con.createStatement(); // to excute the Database command without any parameters 
+            //Result 
+            ResultSet result = comm.executeQuery(sql);
+            //Show the search resuts
+            DefaultTableModel model;
+            model = (DefaultTableModel) tblSerie.getModel();
+            model.setNumRows(0);
+                while(result.next()){
+                    model.addRow(new Object[]{
+                    result.getString("Title"),
+                    result.getString("Category"),
+                    result.getString("Year"),
+                    });
+                }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }//GEN-LAST:event_cmbCategoryItemStateChanged
 
-    private void rentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentButtonActionPerformed
+    private void btnRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentActionPerformed
         getSelected(tblSerie.getSelectedRow());
         //instanciate the variable cart
         Cart cart = new Cart();
@@ -354,7 +393,7 @@ public class SeriePage extends javax.swing.JFrame {
         new Cart().setVisible(true);
         //closing the SeriePage
         dispose();
-    }//GEN-LAST:event_rentButtonActionPerformed
+    }//GEN-LAST:event_btnRentActionPerformed
    
     public void searchSerie(){
         try { // Connect to the DB
@@ -415,10 +454,11 @@ public class SeriePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCart;
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnRent;
     private javax.swing.JButton btnShowAll;
-    private javax.swing.JButton cartButton;
     private javax.swing.JComboBox<String> cmbCategory;
-    private javax.swing.JButton jHomeButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -428,32 +468,30 @@ public class SeriePage extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jSerie;
     private javax.swing.JLabel lblSerieImage;
-    private javax.swing.JButton rentButton;
     private javax.swing.JTable tblSerie;
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
 private void getSelected(int selectedRow) {
-
+        //select a Series in the table
         try { // Connect to the DB
             Connection con = Connect.getConnection();
-            String sql = "SELECT title, Category.name as category, price FROM Priscilla_2019217.Series\n"
-                    + "inner join Category on Series.idCategory = Category.id\n"
+            //SQL query
+            String sql = "SELECT title, Category.name as category, price FROM Priscilla_2019217.Series "
+                    + "inner join Category on Series.idCategory = Category.id "
                     + "where idSeries =" + (selectedRow + 1) + ";";
-
-            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
-
+            // to excute the Database command without any parameters
+            PreparedStatement ps = con.prepareStatement(sql); 
             //Result 
             ResultSet result = ps.executeQuery(sql);
             //Show the search resuts
-
             while (result.next()) {
                 title = result.getString("title");
                 category = result.getString("category");
                 price = result.getDouble("price");
             }
-            System.out.println(title + category + price);
+            System.out.println(title + " " + category + " " + price);
             //inserting data into the table
             insertSelected(title, category, price);
         } catch (Exception e) {
@@ -468,11 +506,11 @@ private void getSelected(int selectedRow) {
     private void insertSelected(String title, String category, double price) {
         try { // Connect to the DB
             Connection con = Connect.getConnection();
-            String sql = "insert into cart (title, category, price)"
+            //SQL query
+            String sql = "INSERT into cart (title, category, price)"
                     + "values (?,?,?);";
-
-            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
-
+            // to excute the Database command without any parameters
+            PreparedStatement ps = con.prepareStatement(sql); 
             ps.setString(1, title);
             ps.setString(2, category);
             ps.setDouble(3, price);

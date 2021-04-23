@@ -3,13 +3,16 @@ package View;
 
 import DAO.Connect;
 import DAO.CategoryDAO;
+import DAO.MovieDAO;
 import Model.Category;
+import Model.Movie;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -50,8 +53,8 @@ public class MoviePage extends javax.swing.JFrame {
         lblDescription = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescription = new javax.swing.JTextArea();
-        cartMovieButton = new javax.swing.JButton();
-        rentMovieButton = new javax.swing.JButton();
+        btnCartMovie = new javax.swing.JButton();
+        btnRentMovie = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -84,6 +87,11 @@ public class MoviePage extends javax.swing.JFrame {
 
         lblCategory.setText("Category:");
 
+        cmbCategory.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCategoryItemStateChanged(evt);
+            }
+        });
         cmbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoryActionPerformed(evt);
@@ -104,7 +112,7 @@ public class MoviePage extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -121,6 +129,7 @@ public class MoviePage extends javax.swing.JFrame {
         lblDescription.setText("Description:");
 
         txtDescription.setColumns(20);
+        txtDescription.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         txtDescription.setRows(5);
         txtDescription.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -129,17 +138,17 @@ public class MoviePage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(txtDescription);
 
-        cartMovieButton.setText("SEE your CART");
-        cartMovieButton.addActionListener(new java.awt.event.ActionListener() {
+        btnCartMovie.setText("SEE your CART");
+        btnCartMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cartMovieButtonActionPerformed(evt);
+                btnCartMovieActionPerformed(evt);
             }
         });
 
-        rentMovieButton.setText("ADD to CART");
-        rentMovieButton.addActionListener(new java.awt.event.ActionListener() {
+        btnRentMovie.setText("ADD to CART");
+        btnRentMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rentMovieButtonActionPerformed(evt);
+                btnRentMovieActionPerformed(evt);
             }
         });
 
@@ -175,8 +184,8 @@ public class MoviePage extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cartMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rentMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnRentMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -207,9 +216,9 @@ public class MoviePage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(cartMovieButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rentMovieButton, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnRentMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -222,11 +231,11 @@ public class MoviePage extends javax.swing.JFrame {
         dispose(); //close the current screen
     }//GEN-LAST:event_btnHomeActionPerformed
 
-    private void cartMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartMovieButtonActionPerformed
+    private void btnCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartMovieActionPerformed
         // When the button Cart is clicked open the Cart Screen
         new Cart().setVisible(true);
         dispose();
-    }//GEN-LAST:event_cartMovieButtonActionPerformed
+    }//GEN-LAST:event_btnCartMovieActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         // Search Button
@@ -245,7 +254,7 @@ public class MoviePage extends javax.swing.JFrame {
             Statement command = con.createStatement(); //to excute the Database command without any parameters
             //Result 
             ResultSet result = command.executeQuery(sql);
-        //Show the search resuts
+            //Show the search resuts
             DefaultTableModel model;
             model = (DefaultTableModel) tblMovie.getModel();
             model.setNumRows(0);
@@ -263,14 +272,23 @@ public class MoviePage extends javax.swing.JFrame {
 
     private void cmbCategoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCategoryKeyReleased
         // Show the Movies, using the filter Category
+        int categoryId = 0;
+        switch ( cmbCategory.getSelectedIndex() ){
+            case 1:
+                categoryId = 9;
+                break;
+        }
         try { //Connect to the DB
-            Connection con = Connect.getConnection();
-            //
-            String sql = "SELECT * FROM Category WHERE name like '%" + cmbCategory.getSelectedItem() + "%' ";
-            Statement command = con.createStatement(); //to excute the Database command without any parameters
+             Connection con = Connect.getConnection();
+             //SQL query
+             String sql = "SELECT Movie.title, Movie.year, Category.name as category, " 
+                    + "Category.type FROM Movie "
+                    + " inner join Category on Movie.idCategory = Category.id "
+                    + "where Movie.idCategory = " + categoryId +";";
+            Statement comm = con.createStatement(); // to excute the Database command without any parameters 
             //Result 
-            ResultSet result = command.executeQuery(sql);
-        //Show the search resuts
+            ResultSet result = comm.executeQuery(sql);
+            //Show the search resuts
             DefaultTableModel model;
             model = (DefaultTableModel) tblMovie.getModel();
             model.setNumRows(0);
@@ -284,24 +302,48 @@ public class MoviePage extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
+//        try { //Connect to the DB
+//            Connection con = Connect.getConnection();
+//            //
+//            String sql = "SELECT * FROM Category WHERE name like '%" + cmbCategory.getSelectedItem() + "%' ";
+//            Statement command = con.createStatement(); //to excute the Database command without any parameters
+//            //Result 
+//            ResultSet result = command.executeQuery(sql);
+//        //Show the search resuts
+//            DefaultTableModel model;
+//            model = (DefaultTableModel) tblMovie.getModel();
+//            model.setNumRows(0);
+//                while(result.next()){
+//                    model.addRow(new Object[]{
+//                    result.getString("Title"),
+//                    result.getString("Category"),
+//                    result.getString("Year"),
+//                    });
+//                }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
     }//GEN-LAST:event_cmbCategoryKeyReleased
 
     private void tblMovieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMovieMouseClicked
         int line = tblMovie.getSelectedRow();
         txtDescription.setText(tblMovie.getValueAt(line,0).toString());
+        
+       
     }//GEN-LAST:event_tblMovieMouseClicked
 
     private void txtDescriptionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescriptionCaretUpdate
         // update the search and show the images according the one selected
         ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\movies\\" + txtDescription.getText()+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
-        lblMovieImg.setIcon(imageIcon);
+        lblMovieImg.setIcon(imageIcon);  
+        
     }//GEN-LAST:event_txtDescriptionCaretUpdate
 
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCategoryActionPerformed
 
-    private void rentMovieButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentMovieButtonActionPerformed
+    private void btnRentMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentMovieActionPerformed
          getSelected(tblMovie.getSelectedRow());
         //instanciate the variable cart
         Cart cart = new Cart();
@@ -310,7 +352,58 @@ public class MoviePage extends javax.swing.JFrame {
         new Cart().setVisible(true);
         //closing the SeriePage
         dispose();
-    }//GEN-LAST:event_rentMovieButtonActionPerformed
+    }//GEN-LAST:event_btnRentMovieActionPerformed
+
+    private void cmbCategoryItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCategoryItemStateChanged
+        // Show the Movies, using the filter Category
+        int categoryId = 0;
+        switch ( cmbCategory.getSelectedIndex() ){
+            case 0:
+                categoryId = 7;
+                break;
+            case 1:
+                categoryId = 9;
+                break;
+            case 2:
+                categoryId = 17;
+                break;
+            case 3:
+                categoryId = 18;
+                break;
+            case 4:
+                categoryId = 19;
+                break;
+            case 5:
+                categoryId = 20;
+                break;
+            case 6:
+                categoryId = 21;
+                break;
+        }
+        try {
+             Connection con = Connect.getConnection();
+        String sql = "SELECT Movie.title, Movie.year, Category.name as category, " 
+                    + "Category.type FROM Movie "
+                    + " inner join Category on Movie.idCategory = Category.id "
+                    + "where Movie.idCategory = " + categoryId +";";
+        Statement comm = con.createStatement(); // to excute the Database command without any parameters 
+            //Result 
+            ResultSet result = comm.executeQuery(sql);
+            //Show the search resuts
+            DefaultTableModel model;
+            model = (DefaultTableModel) tblMovie.getModel();
+            model.setNumRows(0);
+                while(result.next()){
+                    model.addRow(new Object[]{
+                    result.getString("Title"),
+                    result.getString("Category"),
+                    result.getString("Year"),
+                    });
+                }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_cmbCategoryItemStateChanged
  
     public void searchMovie(){
         //Connect to the DB
@@ -372,9 +465,10 @@ public class MoviePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCartMovie;
     private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnRentMovie;
     private javax.swing.JButton btnShow;
-    private javax.swing.JButton cartMovieButton;
     private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -385,36 +479,32 @@ public class MoviePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblMovieImg;
     private javax.swing.JLabel lblSearch;
-    private javax.swing.JButton rentMovieButton;
     private javax.swing.JTable tblMovie;
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 
 private void getSelected(int selectedRow) {
-
+        //select a Movie in the table
         try { // Connect to the DB
             Connection con = Connect.getConnection();
             String sql = "SELECT Movie.title, Category.name as category, price FROM Priscilla_2019217.Movie\n"
                     + "inner join Category on Movie.idCategory = Category.id\n"
                     + "where idMovie =" + (selectedRow + 1) + ";";
-
-            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
-
+            // to excute the Database command without any parameters
+            PreparedStatement ps = con.prepareStatement(sql); 
             //Result 
             ResultSet result = ps.executeQuery(sql);
             //Show the search resuts
-
             while (result.next()) {
                 title = result.getString("title");
                 category = result.getString("category");
                 price = result.getDouble("price");
             }
-            System.out.println(title + category + price);
+            System.out.println(title + " " + category + " " + price);
             //inserting data into the table
             insertSelected(title, category, price);
         } catch (Exception e) {
-//            System.out.println("Test vem aki"+e);
         }
     }
     //declaring the variables
@@ -425,11 +515,11 @@ private void getSelected(int selectedRow) {
     private void insertSelected(String title, String category, double price) {
         try { // Connect to the DB
             Connection con = Connect.getConnection();
-            String sql = "insert into cart (title, category, price)"
+            //SQL query
+            String sql = "INSERT into cart (title, category, price)"
                     + "values (?,?,?);";
-
-            PreparedStatement ps = con.prepareStatement(sql); // to excute the Database command without any parameters
-
+            // to excute the Database command without any parameters
+            PreparedStatement ps = con.prepareStatement(sql); 
             ps.setString(1, title);
             ps.setString(2, category);
             ps.setDouble(3, price);
