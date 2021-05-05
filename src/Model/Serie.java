@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -8,13 +7,21 @@ package Model;
 public class Serie extends Item{ // inheritance from Item
     private int idSeries;
     private String title;
+    private String category;
     private int year;
     private String description;
     
-    public Serie(Category Category) {
+     public Serie(Category category) {
     //take one parameter declared in the child class and send it to the parent class
-    //this means the parameter Category declared into the Item is now accessible to the class Movie    
-        super(Category);
+    //this means the parameter Category declared into the Item is now accessible to the class Serie    
+        super(category);
+    }
+    
+    public Serie(int idSeries, String title, String category, int year){
+        this.idSeries = idSeries;
+        this.title = title;
+        this.category = category;
+        this.year = year;
     }
 
     public int getIdSeries() {
@@ -25,7 +32,6 @@ public class Serie extends Item{ // inheritance from Item
         this.idSeries = idSeries;
     }
     
-
     public String getTitle() {
         return title;
     }
@@ -33,6 +39,11 @@ public class Serie extends Item{ // inheritance from Item
     public void setTitle(String title) {
         this.title = title;
     }
+    
+     public String getCAtegory() {
+        return category;
+    }
+    
 
     public int getYear() {
         return year;
@@ -50,6 +61,13 @@ public class Serie extends Item{ // inheritance from Item
         this.description = description;
     }
     
-    
-    
+    @Override
+    public String toString() {
+        return "Serie{" + 
+                "idSeries=" + idSeries + 
+                ", title=" + getTitle() + 
+                "year=" + year + 
+                ", description=" + getDescription() + '}';
+    }
+        
 }

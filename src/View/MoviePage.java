@@ -1,18 +1,16 @@
-
 package View;
 
+import Controller.MovieControl;
 import DAO.Connect;
 import DAO.CategoryDAO;
-import DAO.MovieDAO;
 import Model.Category;
 import Model.Movie;
+import Model.MoviesTableModel;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +31,6 @@ public class MoviePage extends javax.swing.JFrame {
         }
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -238,8 +235,8 @@ public class MoviePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCartMovieActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // Search Button
-        searchMovie();
+        // Show All Button
+        addToTable();
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
@@ -326,17 +323,19 @@ public class MoviePage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCategoryKeyReleased
 
     private void tblMovieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMovieMouseClicked
+        //when the movie is selected the image should be visible in teh lblMovieImg
+        //https://docs.oracle.com/javase/tutorial/uiswing/components/icon.html
         int line = tblMovie.getSelectedRow();
-        txtDescription.setText(tblMovie.getValueAt(line,0).toString());
-        
-       
+        //txtDescription.setText(tblMovie.getValueAt(line,0).toString());
+        // update the search and show the images according the one selected
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\movies\\" + tblMovie.getValueAt(tblMovie.getSelectedRow(), 0)+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
+        //testing
+        System.out.println("src\\View\\images\\movies\\" + tblMovie.getValueAt(tblMovie.getSelectedRow(), 1)+".jpg");
+        lblMovieImg.setIcon(imageIcon);        
     }//GEN-LAST:event_tblMovieMouseClicked
 
     private void txtDescriptionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescriptionCaretUpdate
-        // update the search and show the images according the one selected
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\movies\\" + txtDescription.getText()+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
-        lblMovieImg.setIcon(imageIcon);  
-        
+     
     }//GEN-LAST:event_txtDescriptionCaretUpdate
 
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
@@ -344,13 +343,13 @@ public class MoviePage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCategoryActionPerformed
 
     private void btnRentMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentMovieActionPerformed
-         getSelected(tblMovie.getSelectedRow());
+        getSelected(tblMovie.getSelectedRow());
         //instanciate the variable cart
         Cart cart = new Cart();
 
         // show the cart page
         new Cart().setVisible(true);
-        //closing the SeriePage
+        //close the SeriePage
         dispose();
     }//GEN-LAST:event_btnRentMovieActionPerformed
 
@@ -405,33 +404,40 @@ public class MoviePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbCategoryItemStateChanged
  
-    public void searchMovie(){
-        //Connect to the DB
-        try {
-             Connection con = Connect.getConnection();
-        String sql = "SELECT Movie.title, Movie.year, Category.name as category, "
-                    + "Category.type FROM Movie " +
-                    "inner join Category on Movie.idCategory = Category.id";
-        Statement comm = con.createStatement(); // to excute the Database command without any parameters 
-            //Result 
-            ResultSet result = comm.executeQuery(sql);
-            //Show the search resuts
-            DefaultTableModel model;
-            model = (DefaultTableModel) tblMovie.getModel();
-            model.setNumRows(0);
-                while(result.next()){
-                    model.addRow(new Object[]{
-                    result.getString("Title"),
-                    result.getString("Category"),
-                    result.getString("Year"),
-                    });
-                }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+//    public void searchMovie(){
+//        //Connect to the DB
+//        try {
+//             Connection con = Connect.getConnection();
+//        String sql = "SELECT Movie.title, Movie.year, Category.name as category, "
+//                    + "Category.type FROM Movie " +
+//                    "inner join Category on Movie.idCategory = Category.id";
+//        Statement comm = con.createStatement(); // to excute the Database command without any parameters 
+//            //Result 
+//            ResultSet result = comm.executeQuery(sql);
+//            //Show the search resuts View --->controller ---->database____controller ---->view
+//            DefaultTableModel model;
+//            model = (DefaultTableModel) tblMovie.getModel();
+//            model.setNumRows(0);
+//                while(result.next()){
+//                    model.addRow(new Object[]{
+//                    result.getString("Title"),
+//                    result.getString("Category"),
+//                    result.getString("Year"),
+//                    });
+//                }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
+    void addToTable(){
+        //add movies into tblMovies
+        MovieControl mc = new MovieControl();
+        Movie[] movies = mc.getAllMoviesFromDb();
+        MoviesTableModel model = new MoviesTableModel(movies);
+        tblMovie.setModel(model);
+        tblMovie.repaint();       
     }
-  
-        
+          
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -483,7 +489,12 @@ public class MoviePage extends javax.swing.JFrame {
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
-
+    //declaring the variables
+    private String title;
+    private String category;
+    private double price;
+    private String description;
+    
 private void getSelected(int selectedRow) {
         //select a Movie in the table
         try { // Connect to the DB
@@ -500,17 +511,14 @@ private void getSelected(int selectedRow) {
                 title = result.getString("title");
                 category = result.getString("category");
                 price = result.getDouble("price");
-            }
+                }
             System.out.println(title + " " + category + " " + price);
             //inserting data into the table
             insertSelected(title, category, price);
         } catch (Exception e) {
         }
     }
-    //declaring the variables
-    private String title;
-    private String category;
-    private double price;
+    
 
     private void insertSelected(String title, String category, double price) {
         try { // Connect to the DB
@@ -529,6 +537,4 @@ private void getSelected(int selectedRow) {
             System.out.println(e);
         }
     }
-
-
 }

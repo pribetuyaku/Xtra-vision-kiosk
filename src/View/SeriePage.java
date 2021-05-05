@@ -1,9 +1,10 @@
-
 package View;
 
+import Controller.SeriesControl;
 import DAO.CategoryDAO;
 import DAO.Connect;
 import Model.Category;
+import Model.Serie;
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
+import Model.SerieTableModel;
 /**
  *
  * @author Betuyaku
@@ -28,8 +30,6 @@ public class SeriePage extends javax.swing.JFrame {
         }
         
     }
-    
-    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -73,6 +73,11 @@ public class SeriePage extends javax.swing.JFrame {
         txtSearch.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 txtSearchCaretUpdate(evt);
+            }
+        });
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
             }
         });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -243,11 +248,20 @@ public class SeriePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHomeActionPerformed
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
-        // Search Button
-         searchSerie();
-        
+        // Show All Button
+         addToTable();
     }//GEN-LAST:event_btnShowAllActionPerformed
 
+    void addToTable(){
+    //add Series into tblSeries
+    SeriesControl sc = new SeriesControl();
+    Serie[] series = sc.getAllSeriesFromDb();
+    SerieTableModel tbmodel = new SerieTableModel(series);
+    tblSerie.setModel(tbmodel);
+    tblSerie.repaint();
+    
+    }
+    
     private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
         // Show the Series while the user is typing
          try { //Connect to the DB
@@ -277,66 +291,81 @@ public class SeriePage extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchKeyReleased
 
     private void tblSerieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSerieMouseClicked
-        
+        //when the serie is selected the image should be visible in teh lblSerieImage
+        //https://docs.oracle.com/javase/tutorial/uiswing/components/icon.html
         int line = tblSerie.getSelectedRow();
-        txtDescription.setText(tblSerie.getValueAt(line, 0).toString());
+        //txtDescription.setText(tblSerie.getValueAt(line, 0).toString());
+        // update the search and show the images according the one selected
+        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\series\\" + tblSerie.getValueAt(tblSerie.getSelectedRow(), 0)+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
+        lblSerieImage.setIcon(imageIcon);
     }//GEN-LAST:event_tblSerieMouseClicked
 
     private void txtSearchCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtSearchCaretUpdate
-         
-     
+    
     }//GEN-LAST:event_txtSearchCaretUpdate
 
     private void txtDescriptionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescriptionKeyReleased
      
-        
     }//GEN-LAST:event_txtDescriptionKeyReleased
 
     private void txtDescriptionCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txtDescriptionCaretUpdate
-        // update the search and show the images according the one selected
-        ImageIcon imageIcon = new ImageIcon(new ImageIcon("src\\View\\images\\series\\" + txtDescription.getText()+".jpg").getImage().getScaledInstance(110, 163, Image.SCALE_DEFAULT));
-        lblSerieImage.setIcon(imageIcon);
+        
     }//GEN-LAST:event_txtDescriptionCaretUpdate
-
-    private void cmbCategoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCategoryKeyReleased
-        // Show the Series, using the filter Category
-        int categoryId = 0;
-        switch ( cmbCategory.getSelectedIndex() ){
-            case 1:
-                categoryId = 6;
-                break;
-        }
-        try { //Connect to the DB
-            Connection con = Connect.getConnection();
-            //SQL query
-            String sql = "SELECT Series.title, Series.year, Category.name as category, " 
-                    + "Category.type FROM Series "
-                    + " inner join Category on Series.idCategory = Category.id "
-                    + "where Series.idCategory = idCategory;";
-            Statement command = con.createStatement(); //to excute the Database command without any parameters
-            //Result 
-            ResultSet result = command.executeQuery(sql);
-        //Show the search resuts
-            DefaultTableModel model;
-            model = (DefaultTableModel) tblSerie.getModel();
-            model.setNumRows(0);
-                while(result.next()){
-                    model.addRow(new Object[]{
-                    result.getString("Title"),
-                    result.getString("Category"),
-                    result.getString("Year"),
-                    });
-                }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_cmbCategoryKeyReleased
 
     private void btnCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartActionPerformed
         // When the button Cart is clicked open the Cart Screen
         new Cart().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCartActionPerformed
+
+    private void btnRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentActionPerformed
+        getSelected(tblSerie.getSelectedRow());
+        //instanciate the variable cart
+        Cart cart = new Cart();
+
+        // show the cart page
+        new Cart().setVisible(true);
+        //close the SeriePage
+        dispose();
+    }//GEN-LAST:event_btnRentActionPerformed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
+    private void cmbCategoryKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbCategoryKeyReleased
+        // Show the Series, using the filter Category
+        int categoryId = 0;
+        switch ( cmbCategory.getSelectedIndex() ){
+            case 1:
+            categoryId = 6;
+            break;
+        }
+        try { //Connect to the DB
+            Connection con = Connect.getConnection();
+            //SQL query
+            String sql = "SELECT Series.title, Series.year, Category.name as category, "
+            + "Category.type FROM Series "
+            + " inner join Category on Series.idCategory = Category.id "
+            + "where Series.idCategory = idCategory;";
+            Statement command = con.createStatement(); //to excute the Database command without any parameters
+            //Result
+            ResultSet result = command.executeQuery(sql);
+            //Show the search resuts
+            DefaultTableModel model;
+            model = (DefaultTableModel) tblSerie.getModel();
+            model.setNumRows(0);
+            while(result.next()){
+                model.addRow(new Object[]{
+                    result.getString("Title"),
+                    result.getString("Category"),
+                    result.getString("Year"),
+                });
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_cmbCategoryKeyReleased
 
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
@@ -347,79 +376,69 @@ public class SeriePage extends javax.swing.JFrame {
         int categoryId = 0;
         switch ( cmbCategory.getSelectedIndex() ){
             case 0:
-                categoryId = 6;
-                break;
+            categoryId = 6;
+            break;
             case 1:
-                categoryId = 14;
-                break;
+            categoryId = 14;
+            break;
             case 2:
-                categoryId = 15;
-                break;
+            categoryId = 15;
+            break;
             case 3:
-                categoryId = 16;
-                break;
+            categoryId = 16;
+            break;
         }
         try {
-             Connection con = Connect.getConnection();
-        String sql = "SELECT Series.title, Series.year, Category.name as category, " 
-                    + "Category.type FROM Series "
-                    + " inner join Category on Series.idCategory = Category.id "
-                    + "where Series.idCategory = " + categoryId +";";
-            Statement comm = con.createStatement(); // to excute the Database command without any parameters 
-            //Result 
+            Connection con = Connect.getConnection();
+            String sql = "SELECT Series.title, Series.year, Category.name as category, "
+            + "Category.type FROM Series "
+            + " inner join Category on Series.idCategory = Category.id "
+            + "where Series.idCategory = " + categoryId +";";
+            Statement comm = con.createStatement(); // to excute the Database command without any parameters
+            //Result
             ResultSet result = comm.executeQuery(sql);
             //Show the search resuts
             DefaultTableModel model;
             model = (DefaultTableModel) tblSerie.getModel();
             model.setNumRows(0);
-                while(result.next()){
-                    model.addRow(new Object[]{
+            while(result.next()){
+                model.addRow(new Object[]{
                     result.getString("Title"),
                     result.getString("Category"),
                     result.getString("Year"),
-                    });
-                }
+                });
+            }
+
         } catch (Exception e) {
             System.out.println(e);
         }
     }//GEN-LAST:event_cmbCategoryItemStateChanged
-
-    private void btnRentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRentActionPerformed
-        getSelected(tblSerie.getSelectedRow());
-        //instanciate the variable cart
-        Cart cart = new Cart();
-
-        // show the cart page
-        new Cart().setVisible(true);
-        //closing the SeriePage
-        dispose();
-    }//GEN-LAST:event_btnRentActionPerformed
    
-    public void searchSerie(){
-        try { // Connect to the DB
-            Connection con = Connect.getConnection();
-           String sql = "SELECT Series.title, Series.year, Category.name as category, "
-                    + "Category.type FROM Series "
-                    + "inner join Category on Series.idCategory = Category.id";
-            Statement command = con.createStatement(); // to excute the Database command without any parameters 
-            //Result 
-            ResultSet result = command.executeQuery(sql);
-            //Show the search resuts
-            DefaultTableModel tbmodel;
-            //get the table model
-            tbmodel = (DefaultTableModel) tblSerie.getModel();
-            tbmodel.setNumRows(0);
-                while(result.next()){
-                    tbmodel.addRow(new Object[]{
-                    result.getString("Title"),
-                    result.getString("Category"),
-                    result.getString("Year"),
-                    });
-                }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
+//    public void searchSerie(){
+//        try { // Connect to the DB
+//            Connection con = Connect.getConnection();
+//           String sql = "SELECT Series.title, Series.year, Category.name as category, "
+//                    + "Category.type FROM Series "
+//                    + "inner join Category on Series.idCategory = Category.id";
+//            Statement command = con.createStatement(); // to excute the Database command without any parameters 
+//            //Result 
+//            ResultSet result = command.executeQuery(sql);
+//            //Show the search resuts
+//            DefaultTableModel tbmodel;
+//            //get the table model
+//            tbmodel = (DefaultTableModel) tblSerie.getModel();
+//            tbmodel.setNumRows(0);
+//                while(result.next()){
+//                    tbmodel.addRow(new Object[]{
+//                    result.getString("Title"),
+//                    result.getString("Category"),
+//                    result.getString("Year"),
+//                    });
+//                }
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//    }
   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -499,9 +518,11 @@ private void getSelected(int selectedRow) {
         }
     }
     //declaring the variables
+
     private String title;
     private String category;
     private double price;
+    private String description;
 
     private void insertSelected(String title, String category, double price) {
         try { // Connect to the DB

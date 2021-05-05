@@ -11,6 +11,10 @@ public class Item {
     private double price;
     private int nRentDays;
     private Category category;
+
+    public Item() {
+    }
+    
     
     public Item(Category category){ //
         this.category = category;

@@ -1,4 +1,3 @@
-
 package Model;
 
 /**
@@ -16,6 +15,14 @@ public class Movie extends Item{
     //take one parameter declared in the child class and send it to the parent class
     //this means the parameter Category declared into the Item is now accessible to the class Movie    
         super(category);            
+    }
+
+    public Movie(int idMovie, String title, String category, int year ) {
+        
+        this.idMovie = idMovie;
+        this.title = title;
+        this.category = category;
+        this.year = year;
     }
 
     public int getIdMovie() {
@@ -46,7 +53,6 @@ public class Movie extends Item{
         this.year = year;
     }
 
-
     public String getDescription() {
         return description;
     }
@@ -63,6 +69,5 @@ public class Movie extends Item{
                 "year=" + year + 
                 ", description=" + getDescription() + '}';
     }
-    
     
 }

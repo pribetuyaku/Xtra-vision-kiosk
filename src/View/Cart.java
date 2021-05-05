@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Rafael
  */
 public class Cart extends javax.swing.JFrame {
-
+    private double total;
     /**
      * Creates new form Cart
      */
@@ -82,7 +82,7 @@ public class Cart extends javax.swing.JFrame {
 
         jTableCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+
             },
             new String [] {
                 "Title", "Catergory", "Price"
@@ -242,7 +242,6 @@ public class Cart extends javax.swing.JFrame {
         try { // Connect to the DB
             Connection con = Connect.getConnection();
             String sql = "SELECT * FROM Priscilla_2019217.cart;";
-
             Statement command = con.createStatement(); // to excute the Database command without any parameters
             //Result 
             ResultSet result = command.executeQuery(sql);
@@ -263,7 +262,7 @@ public class Cart extends javax.swing.JFrame {
     }
     
    
-    private double total;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackToMovie;
     private javax.swing.JButton backButtonSerie;

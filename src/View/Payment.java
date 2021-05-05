@@ -3,6 +3,8 @@ package View;
 import DAO.Connect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
@@ -31,7 +33,7 @@ public class Payment extends javax.swing.JFrame {
         jCardNumber = new javax.swing.JLabel();
         cardNumberTxt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        valueRent = new javax.swing.JLabel();
+        totalRent = new javax.swing.JLabel();
         lblCVV = new javax.swing.JLabel();
         txtCVV = new javax.swing.JTextField();
         lblDate = new javax.swing.JLabel();
@@ -64,7 +66,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Your Bill:");
 
-        valueRent.setText("€ ");
+        totalRent.setText("€ ");
 
         lblCVV.setText("CVV:");
 
@@ -103,7 +105,7 @@ public class Payment extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(valueRent, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(totalRent, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -114,8 +116,10 @@ public class Payment extends javax.swing.JFrame {
                                 .addComponent(cardNumberTxt)
                                 .addComponent(lblCVV)
                                 .addComponent(txtCVV, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(validDate, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(75, 75, 75)
+                                    .addComponent(validDate))))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(backButton)
                             .addGap(18, 18, 18)
@@ -136,7 +140,7 @@ public class Payment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(valueRent))
+                    .addComponent(totalRent))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,6 +189,39 @@ public class Payment extends javax.swing.JFrame {
            }
         }
         return isEmailValid;
+    }
+    
+    private double total;
+    public void Selected() {
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "SELECT * FROM Priscilla_2019217.cart;";
+            Statement command = con.createStatement(); // to excute the Database command without any parameters
+            //Result 
+            ResultSet result = command.executeQuery(sql);
+            //Show the search resuts
+            showTotal();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    private void showTotal() {
+        try { // Connect to the DB
+            Connection con = Connect.getConnection();
+            String sql = "SELECT price FROM Priscilla_2019217.cart;";
+
+            Statement command = con.createStatement(); // to excute the Database command without any parameters
+            //Result 
+            ResultSet result = command.executeQuery(sql);
+            //Storing thw result of price into the variable total, and count when adding a new price into the table.
+            while (result.next()) {
+                total += result.getDouble("price");
+            }
+            //show the calculation of the price
+            totalRent.setText(Double.toString(total));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
@@ -261,7 +298,7 @@ public class Payment extends javax.swing.JFrame {
             }
         });
     }
-    double total;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JTextField cardNumberTxt;
@@ -275,9 +312,9 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPayment;
     private javax.swing.JButton submitButton;
+    private javax.swing.JLabel totalRent;
     private javax.swing.JTextField txtCVV;
     private javax.swing.JFormattedTextField validDate;
-    private javax.swing.JLabel valueRent;
     // End of variables declaration//GEN-END:variables
 
 }
