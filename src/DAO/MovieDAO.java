@@ -1,8 +1,8 @@
 
 package DAO;
 
-import Model.Movie;
-import Model.Category;
+import Model.MovieModel;
+import Model.CategoryModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +16,9 @@ import java.util.List;
  * @author Betuyaku
  */
 public class MovieDAO {
-    private List<Movie> listMovie;
+    private List<MovieModel> listMovie;
     //method insert movie into the DB
-    public static boolean insertMovie (Movie movie){
+    public static boolean insertMovie (MovieModel movie){
         try {
             //open the connection
             Connection connect =  Connect.getConnection();
@@ -57,7 +57,7 @@ public class MovieDAO {
         } 
     }
     
-        public static boolean updateMovie(Movie movie){
+        public static boolean updateMovie(MovieModel movie){
         try {
             //open the connection
             Connection connecta = Connect.getConnection();
@@ -85,9 +85,9 @@ public class MovieDAO {
         } 
     }
     
-    public static List<Movie> listMovie(){
+    public static List<MovieModel> listMovie(){
         //Create a ArrayList of Movies
-        List<Movie> liMovie = new ArrayList<Movie>();
+        List<MovieModel> liMovie = new ArrayList<MovieModel>();
         try {
             //open the connection with DB
             Connection con = Connect.getConnection();
@@ -100,19 +100,19 @@ public class MovieDAO {
             //Result 
             ResultSet result = st.executeQuery(sql);
             while(result.next()){//while there is any register
-                Category categ = new Category();//built a category
+                CategoryModel categ = new CategoryModel();//built a category
                 categ.setId(result.getInt("id"));
                 categ.setName(result.getString("idCategory"));
                 categ.setType(result.getString("type").charAt(0));
                 
-                Movie mv = new Movie(categ);//Associates the Category to the Movie
+                MovieModel mv = new MovieModel(categ);//Associates the CategoryModel to the MovieModel
                 mv.setTitle(result.getString("title"));
                 mv.setDescription(result.getString("description"));
                 mv.setPrice(result.getDouble("price"));
                 mv.setYear(result.getInt("year"));
                 mv.setnRentDays(result.getInt("nRentDays"));
                 
-                //add this Movie inside my llistMovie
+                //add this MovieModel inside my llistMovie
                 liMovie.add(mv);
                 
             }

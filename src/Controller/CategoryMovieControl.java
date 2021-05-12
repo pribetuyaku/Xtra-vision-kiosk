@@ -7,7 +7,7 @@ package Controller;
 
 /**
  *
- * @author User
+ * @author Betuyaku
  */
 public class CategoryMovieControl {
     

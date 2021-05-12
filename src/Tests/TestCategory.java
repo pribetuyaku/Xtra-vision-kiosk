@@ -3,19 +3,19 @@ This class is only for test
  */
 package Tests;
 
-import Model.Category;
+import Model.CategoryModel;
 import DAO.CategoryDAO;
-import Model.Serie;
+import Model.SerieModel;
 /**
  *
  * @author Betuyaku
  */
 public class TestCategory {
     
-     private Serie serie;
+     private SerieModel serie;
     
     public static void main(String[] args) {
-        Category category = new Category();
+        CategoryModel category = new CategoryModel();
         category.setName("Comedy");
         category.setType('M'); //M-> Movie & S-> Series
        

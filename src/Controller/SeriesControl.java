@@ -2,7 +2,7 @@
 package Controller;
 
 import DAO.Connect;
-import Model.Serie;
+import Model.SerieModel;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,9 +13,10 @@ import java.util.ArrayList;
  * @author Betuyaku
  */
 public class SeriesControl {
-//method to store the list of movies into an Array of movies
-    public Serie[] getAllSeriesFromDb(){
-        ArrayList<Serie> series = new ArrayList<>();
+    
+//method to store the list of movies into an Array of series
+    public SerieModel[] getAllSeriesFromDb(){
+        ArrayList<SerieModel> series = new ArrayList<>();
         //Connect to DB
         try {
             Connection conec = Connect.getConnection();
@@ -30,7 +31,8 @@ public class SeriesControl {
             //Show the results
             while (result.next()){
                 //create the object to populate the table
-                Serie serie = new Serie(result.getInt(1),result.getString(2), result.getString(4), result.getInt(3));
+                SerieModel serie = new SerieModel(result.getInt(1),result.getString(2), 
+                        result.getString(4), result.getInt(3));
                 //add the array into the object
                 series.add(serie);
             }
@@ -41,6 +43,6 @@ public class SeriesControl {
         for(int i = 0; i<series.size(); i++){
             System.out.println(series.get(i).getTitle());
         }
-        return series.toArray(new Serie[series.size()]);
+        return series.toArray(new SerieModel[series.size()]);
     }
 }

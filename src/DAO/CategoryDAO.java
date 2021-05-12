@@ -2,7 +2,7 @@
 package DAO;
 
 import java.sql.Connection;
-import Model.Category;
+import Model.CategoryModel;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class CategoryDAO { 
     //insert a data into the database but return the result true or false(boolean)
     //just to make sure if works
-    public static boolean insert(Category category){
+    public static boolean insert(CategoryModel category){
         try {
             //open connection
             Connection connect = Connect.getConnection();
@@ -57,7 +57,7 @@ public class CategoryDAO {
         }
     }
    
-    public static boolean update(Category category){
+    public static boolean update(CategoryModel category){
         try {
             //open connection
             Connection conn = Connect.getConnection();
@@ -79,8 +79,8 @@ public class CategoryDAO {
         } return false;
     }
     
-    public static ArrayList<Category> ListCategory(){ //list all the categories from the Database
-        ArrayList<Category> categories = new ArrayList<Category>();
+    public static ArrayList<CategoryModel> ListCategory(){ //list all the categories from the Database
+        ArrayList<CategoryModel> categories = new ArrayList<CategoryModel>();
         try {
             Connection con = Connect.getConnection();
             String sql = "SELECT * FROM Category";
@@ -88,7 +88,7 @@ public class CategoryDAO {
             //Result 
             ResultSet result = command.executeQuery(sql);
             while(result.next()){
-                Category c = new Category();
+                CategoryModel c = new CategoryModel();
                 c.setId(result.getInt("id"));
                 c.setName(result.getString("name"));
                 c.setType(result.getString("type").charAt(0));
@@ -102,8 +102,8 @@ public class CategoryDAO {
         return categories;
     }
     
-    public static ArrayList<Category> ListCategoryType(char type){ //list all the categories from the Database
-        ArrayList<Category> categories = new ArrayList<Category>();
+    public static ArrayList<CategoryModel> ListCategoryType(char type){ //list all the categories from the Database
+        ArrayList<CategoryModel> categories = new ArrayList<CategoryModel>();
         try {
             Connection con = Connect.getConnection();
             String sql = "SELECT * FROM Category WHERE type = ?";
@@ -112,7 +112,7 @@ public class CategoryDAO {
             //Result 
             ResultSet result = command.executeQuery();
             while(result.next()){
-                Category c = new Category();
+                CategoryModel c = new CategoryModel();
                 c.setId(result.getInt("id"));
                 c.setName(result.getString("name"));
                 c.setType(type);

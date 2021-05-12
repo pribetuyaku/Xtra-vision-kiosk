@@ -11,16 +11,16 @@ public class SerieTableModel extends AbstractTableModel{
     //https://docs.oracle.com/javase/tutorial/uiswing/components/table.html#data
     
     //method to get Title, Category and Year
-    private String[] columnNames = {"Title", "Category", "Year"};
-    private Serie[] series;
+    private String[] columnSerieNames = {"ID","Title", "Category", "Year"};
+    private SerieModel[] series;
     
-    public SerieTableModel(Serie[] series){
+    public SerieTableModel(SerieModel[] series){
         this.series = series;
     }
     
     @Override
     public String getColumnName(int col) {
-        return columnNames[col];
+        return columnSerieNames[col];
     }
     
     @Override
@@ -35,21 +35,23 @@ public class SerieTableModel extends AbstractTableModel{
     
     @Override
     public int getColumnCount() {
-       return columnNames.length;
+       return columnSerieNames.length;
     }
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Serie serie = series[rowIndex];
+        SerieModel serie = series[rowIndex];
         switch (columnIndex){
-            
             case 0:{
-                return serie.getTitle();
+                return serie;
             }
             case 1:{
-                return serie.getCAtegory();
+                return serie.getTitle();
             }
             case 2:{
+                return serie.getCAtegory();
+            }
+            case 3:{
                 return serie.getYear();
             }
             

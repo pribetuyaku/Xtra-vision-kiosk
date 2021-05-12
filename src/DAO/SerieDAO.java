@@ -1,8 +1,8 @@
 
 package DAO;
 
-import Model.Category;
-import Model.Serie;
+import Model.CategoryModel;
+import Model.SerieModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,8 +15,8 @@ import java.util.List;
  * @author Betuyaku
  */
 public class SerieDAO {
-    private List<Serie> liSerie;
-    public static boolean insertSerie(Serie serie){
+    private List<SerieModel> liSerie;
+    public static boolean insertSerie(SerieModel serie){
         try {
             //open the connection
             Connection connecta = Connect.getConnection();
@@ -41,7 +41,7 @@ public class SerieDAO {
         }   
     }
     
-    public static boolean updateSerie(Serie serie){
+    public static boolean updateSerie(SerieModel serie){
         try {
             //open the connection
             Connection connecta = Connect.getConnection();
@@ -88,9 +88,9 @@ public class SerieDAO {
         } 
     }
     
-        public static List<Serie> listSerie(){ //list of Series
+        public static List<SerieModel> listSerie(){ //list of Series
         //Create a ArrayList of Series
-        List<Serie> liSerie = new ArrayList<Serie>();
+        List<SerieModel> liSerie = new ArrayList<SerieModel>();
         try {
             //open the connection with DB
             Connection conn = Connect.getConnection();
@@ -103,19 +103,19 @@ public class SerieDAO {
             //Result
             ResultSet res = st.executeQuery(sql);
             while(res.next()){ //while there is any register
-                Category cat = new Category(); //built a category
+                CategoryModel cat = new CategoryModel(); //built a category
                 cat.setId(res.getInt("id"));
                 cat.setName(res.getString("idCategory"));
                 cat.setType(res.getString("type").charAt(0));
                 
-                Serie se = new Serie(cat); //Associates the Category to the Serie
+                SerieModel se = new SerieModel(cat); //Associates the CategoryModel to the SerieModel
                 se.setTitle(res.getString("title"));
                 se.setDescription(res.getString("description"));
                 se.setPrice(res.getDouble("price"));
                 se.setnRentDays(res.getInt("nRentDays"));
                 se.setYear(res.getInt("year"));
                 
-                //add this Serie inside my listSerie
+                //add this SerieModel inside my listSerie
                 liSerie.add(se);
              } 
                 res.close();

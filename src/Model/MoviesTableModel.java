@@ -13,11 +13,11 @@ import javax.swing.table.AbstractTableModel;
     
     //method to get Title, Category and Year 
     
-    private String[] columnNames = {"Title","Category","Year"};
-    private Movie[ ] movies;
+    private String[] columnNames = {"ID","Title","Category","Year"};
+    private MovieModel[ ] movies;
     
 
-    public MoviesTableModel( Movie[] movies) {
+    public MoviesTableModel( MovieModel[] movies) {
         this.movies = movies;
     }
     
@@ -40,18 +40,22 @@ import javax.swing.table.AbstractTableModel;
        return columnNames.length;
     }
     
-    @Override
+    @Override //populate the table
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Movie movie = movies[rowIndex];
+        MovieModel movie = movies[rowIndex];
+        
         switch (columnIndex){
             
             case 0:{
-                return movie.getTitle();
+                return movie;
             }
             case 1:{
-                return movie.getCAtegory();
+                return movie.getTitle();
             }
             case 2:{
+                return movie.getCAtegory();
+            }
+            case 3:{
                 return movie.getYear();
             }
             

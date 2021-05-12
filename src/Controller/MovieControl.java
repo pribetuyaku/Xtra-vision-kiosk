@@ -2,22 +2,22 @@
 package Controller;
 
 import DAO.Connect;
-import Model.Movie;
+import Model.MovieModel;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Betuyaku
  */
+
 //method to store the list of movies into an Array of movies
 public class MovieControl {
-    
-        public Movie[] getAllMoviesFromDb(){
-        ArrayList<Movie> movies = new ArrayList<>();
+    //method to store the list of movies into an Array of movies
+        public MovieModel[] getAllMoviesFromDb(){
+        ArrayList<MovieModel> movies = new ArrayList<>();
         //Connect to the DB
         try {
             Connection con = Connect.getConnection();
@@ -31,8 +31,8 @@ public class MovieControl {
             //Show the search resuts 
                 while(result.next()){
                     //create the object to populate the table
-                    Movie movie = new Movie(result.getInt(1),result.getString(2),result.getString(4),
-                            result.getInt(3));
+                    MovieModel movie = new MovieModel(result.getInt(1),result.getString(2),
+                            result.getString(4), result.getInt(3));
                     //add the array into the object
                     movies.add(movie);
                 }
@@ -43,7 +43,7 @@ public class MovieControl {
         for(int i = 0; i<movies.size();i++){
             System.out.println(movies.get(i).getTitle());
         }
-        return movies.toArray(new Movie[movies.size()]);
+        return movies.toArray(new MovieModel[movies.size()]);
     }
         
    
