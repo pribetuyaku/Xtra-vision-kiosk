@@ -1,13 +1,11 @@
 
 package View;
 
-import Controller.CartControl;
 import DAO.Connect;
 import Model.CartTableModel;
 import Model.MovieModel;
 import Model.RentCartMovieModel;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
@@ -16,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Rafael
+ * @author Betuyaku
  */
 public class CartView extends javax.swing.JFrame {
     private double total;
@@ -36,7 +34,6 @@ public class CartView extends javax.swing.JFrame {
         jCartLabel = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
         btnPay = new javax.swing.JButton();
-        emptyCartButton = new javax.swing.JButton();
         lblTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCartView = new javax.swing.JTable();
@@ -66,13 +63,6 @@ public class CartView extends javax.swing.JFrame {
         btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPayActionPerformed(evt);
-            }
-        });
-
-        emptyCartButton.setText("EMPTY Cart");
-        emptyCartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emptyCartButtonActionPerformed(evt);
             }
         });
 
@@ -124,9 +114,7 @@ public class CartView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTotal)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(emptyCartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(btnPay, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,16 +127,14 @@ public class CartView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(emptyCartButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnPay)))
+                        .addComponent(btnPay)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTotal)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTotal)
-                    .addComponent(BackToMovie))
+                .addComponent(BackToMovie)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -162,6 +148,12 @@ public class CartView extends javax.swing.JFrame {
     }//GEN-LAST:event_homeButtonActionPerformed
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
+         //show message to user, about extra fee in case they did'nt return the movie on time
+        JOptionPane.showMessageDialog(this, "If you hold onto your disc for the maximum "+ "\n" +
+                "rental period – 10 days, you will be charged" + "\n"
+                + "€15 and the disc is yours to keep.", "Warning",
+        JOptionPane.WARNING_MESSAGE);
+        //crate a paymentView
         PaymentView pay = new PaymentView();
 
         System.out.println(total);
@@ -172,21 +164,6 @@ public class CartView extends javax.swing.JFrame {
         //Closing the current window
         dispose();
     }//GEN-LAST:event_btnPayActionPerformed
-
-    private void emptyCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emptyCartButtonActionPerformed
-        // show a joptionpane dialog using showConfirmDialog
-        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\doubt.png");
-        int input = JOptionPane.showConfirmDialog(null, 
-                "Are you sure do want to clear your cart?", "CLEAR MY CART", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
-        // 0=ok 2=cancel
-        if(input == 0){ //if the option selected was ok
-            emptyCart();
-        } 
-        
-//        RentCartMovieModel.getCurrentCart().removeAllMovies();
-        MovieModel movie = null;
-        RentCartMovieModel.getCurrentCart().removeMovie(movie);
-    }//GEN-LAST:event_emptyCartButtonActionPerformed
 
     private void BackToMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToMovieActionPerformed
       new MovieView().setVisible(true);//show the MovieView when the button is clicked
@@ -258,7 +235,6 @@ public class CartView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackToMovie;
     private javax.swing.JButton btnPay;
-    private javax.swing.JButton emptyCartButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JLabel jCartLabel;
     private javax.swing.JScrollPane jScrollPane1;
@@ -268,17 +244,14 @@ public class CartView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 private void showTotalCart() {
+    //return the total of renting
      double total = RentCartMovieModel.getCurrentCart().getSize() * 2.99;
      lblTotal.setText("€ "+total);
-
     }
-  private void emptyCart() {
-    // show the cart page using casting
-       MovieModel movie = (MovieModel)tblCartView.getValueAt(tblCartView.getSelectedRow(), 0);
-       RentCartMovieModel.getCurrentCart().removeAllMovies(movie);
-    }
+  
 
     private void showCartMovies() {
+        //show cart Movies in the current Cart
         CartTableModel model = new CartTableModel(RentCartMovieModel.getCurrentCart().getMoviesFromCart());
         tblCartView.setModel(model);
         tblCartView.setModel(model);

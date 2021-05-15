@@ -2,6 +2,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -59,15 +60,6 @@ public class RentCartMovieModel {
         for (int i =0 ;i<movies.size();i++){
             System.out.println(movies.get(i).getTitle());
         }
-    }
-
-    public void removeAllMovies(MovieModel movie) {
-       movies.clear();
-    }
-   
-    
-    public void removeMovie(MovieModel movie) {
-        movies.remove(movie);
     }
 
     public int getSize() {

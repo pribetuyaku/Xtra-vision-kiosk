@@ -10,8 +10,6 @@ public class rentItemModel {
     private double price;
     private MovieModel movie;
     
-    
-
     public int getId() {
         return id;
     }

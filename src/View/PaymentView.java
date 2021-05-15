@@ -1,26 +1,20 @@
 package View;
 
 import DAO.Connect;
-import Model.DB;
+import Model.CartTableModel;
 import Model.MovieModel;
 import Model.OrderItem;
 import Model.Orders;
 import Model.RentCartMovieModel;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import java.util.Date;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -33,6 +27,7 @@ public class PaymentView extends javax.swing.JFrame {
      */
     public PaymentView() {
         initComponents();
+        showTotal();
     }
     
     @SuppressWarnings("unchecked")
@@ -44,7 +39,6 @@ public class PaymentView extends javax.swing.JFrame {
         jCardNumber = new javax.swing.JLabel();
         cardNumberTxt = new javax.swing.JTextField();
         lblBill = new javax.swing.JLabel();
-        lblRent = new javax.swing.JLabel();
         lblCVV = new javax.swing.JLabel();
         txtCVV = new javax.swing.JTextField();
         lblDate = new javax.swing.JLabel();
@@ -77,8 +71,6 @@ public class PaymentView extends javax.swing.JFrame {
         lblBill.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblBill.setText("Your Bill:");
 
-        lblRent.setText("€ ");
-
         lblCVV.setText("CVV:");
 
         lblDate.setText("EXPIRED DATE:");
@@ -104,6 +96,14 @@ public class PaymentView extends javax.swing.JFrame {
                 emailTxtActionPerformed(evt);
             }
         });
+        emailTxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailTxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                emailTxtKeyTyped(evt);
+            }
+        });
 
         jEmailLabel.setText("Your receipt by email:");
 
@@ -121,9 +121,7 @@ public class PaymentView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblBill)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblRent, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40))
+                                .addGap(82, 82, 82))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -155,9 +153,7 @@ public class PaymentView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBill)
-                    .addComponent(lblRent))
+                .addComponent(lblBill)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -193,61 +189,28 @@ public class PaymentView extends javax.swing.JFrame {
         dispose(); //close the current screen
     }//GEN-LAST:event_backButtonActionPerformed
     
-    //method to valid the email
-    
-    public static boolean isValidEmail(String email){
-        boolean isEmailValid = false;
-        if (email!= null && email.length() > 0){
-            String checker = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-            Pattern pattern = Pattern.compile(checker, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(email);
-            if (matcher.matches()){
-                isEmailValid = true;
-            }
+    //method to valid the email    
+    public void isValidEmail(String email){
+        
+        if(!email.trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
+        JOptionPane.showMessageDialog(this, "The email is not valid", "Warning",
+        JOptionPane.WARNING_MESSAGE);
         }
-        return isEmailValid;
     }
     
     private double total;
-    public void Selected() {
-        try { // Connect to the DB
-            Connection con = Connect.getConnection();
-            String sql = "SELECT * FROM Priscilla_2019217.cart;";
-            Statement command = con.createStatement(); // to excute the Database command without any parameters
-            //Result
-            ResultSet result = command.executeQuery(sql);
-            //Show the search resuts
-            showTotal();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
     private void showTotal() {
-        try { // Connect to the DB
-            Connection con = Connect.getConnection();
-            String sql = "SELECT price FROM Priscilla_2019217.cart;";
-            
-            Statement command = con.createStatement(); // to excute the Database command without any parameters
-            //Result
-            ResultSet result = command.executeQuery(sql);
-            //Storing thw result of price into the variable total, and count when adding a new price into the table.
-            while (result.next()) {
-                total += result.getDouble("price");
-            }
-            //show the calculation of the price
-            double total = RentCartMovieModel.getCurrentCart().getSize() * 2.99;
-            lblRent.setText("€ "+total);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        //show the total billing to pay
+        lblBill.setText("€ "+RentCartMovieModel.getCurrentCart().getSize() * 2.99);
     }
     
     int getCardId(String cardnumber, String email,String valid){
         int cardId=0;
         boolean isThere = false;
         try {
+            //Open the connection with the DB
             Connection con = Connect.getConnection();
-            //SQL query
+            //SQL query to verify if the cardNumber exists into the User table
             String query = "select count(*) from User where cardNumber = "+cardnumber ;
             Statement comm = con.createStatement(); // to excute the Database command without any parameters
             //Result
@@ -255,7 +218,7 @@ public class PaymentView extends javax.swing.JFrame {
             if(rs.next()){
                 isThere = rs.getInt(1)>0;
             }
-            if(isThere==true){
+            if(isThere==true){ //if is true take the cardNumber
                 query = "SELECT idUser from User WHERE cardNumber = "+ cardnumber;
                 rs = comm.executeQuery(query);
                 if(rs.next()){
@@ -265,10 +228,13 @@ public class PaymentView extends javax.swing.JFrame {
                 con.close();
             }
             
-            else{
+            else{ //if the boolean is false create a new payment into the User table
+                //open the connection DB again
                 Connection conn = Connect.getConnection();
+                // to excute the Database command without any parameters
                 Statement stmt = conn.createStatement();
                 String queryInsert = "insert into User (email,cardNumber,validCard) values('"+email+"','"+cardnumber+"','"+valid+"');";
+                //This piece of code was inspired by: https://stackoverflow.com/questions/4224228/preparedstatement-with-statement-return-generated-keys
                 cardId = stmt.executeUpdate(queryInsert,Statement.RETURN_GENERATED_KEYS);
                 ResultSet rs1 = stmt.getGeneratedKeys();
                 if(rs1.next()){
@@ -276,16 +242,19 @@ public class PaymentView extends javax.swing.JFrame {
                 }
                 
             }
-            
+            //close the DB connection
             comm.close();
         } catch (Exception e) {
             System.out.println(e);
         }
         return cardId;
     }
-    
+  
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        
+        // check the rent date
         int cardId = getCardId(cardNumberTxt.getText(),emailTxt.getText(),validDate.getText());
+        //This piece of code was developed following: https://docs.oracle.com/javase/10/docs/api/java/text/SimpleDateFormat.html
         Date date = new Date();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         df.format(date);
@@ -294,14 +263,22 @@ public class PaymentView extends javax.swing.JFrame {
         order.addMovies(movies);
         int idOrder=0;
         try {
+            //open the DB connection
             Connection con = Connect.getConnection();
-            //SQL query
+                     
+            //SQL query to Insert the payment (cardId) into the Order
             String query = "INSERT into Priscilla_2019217.Order (paymentId)\n" +
                     "values (" +cardId+ "); ";
             Statement comm = con.createStatement(); // to excute the Database command without any parameters
             //Result
+            //This piece of code was inspired by: https://stackoverflow.com/questions/4224228/preparedstatement-with-statement-return-generated-keys
             comm.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = comm.getGeneratedKeys();
+            //valid Email
+//            String email = emailTxt.getText().trim();
+//            if(!email.isEmpty()){
+//                    isValidEmail(email);
+//                }
             if(rs.next()){
                 idOrder = rs.getInt(1);
             }
@@ -312,10 +289,10 @@ public class PaymentView extends javax.swing.JFrame {
         try {
             Connection con = Connect.getConnection();
             Statement comm = con.createStatement();
-            
             for(OrderItem item :order.getOrders()){
                String query = "INSERT into OrderItem (OrderId,OrderMovieId) " +
                     "values (" +idOrder+ ", "+ item.getIdMovie()+"); ";
+               //when the user submit the payment, update the statusMovie to unavailable
                String queryStatus ="update Movie set statusMovie = 'u' where idMovie = "+item.getIdMovie();
                comm.executeUpdate(query);
                comm.execute(queryStatus);
@@ -325,89 +302,17 @@ public class PaymentView extends javax.swing.JFrame {
         } catch (Exception e) {
             System.out.println(e);
         }
-        JOptionPane.showMessageDialog(this, "your order number is: "+idOrder);
         
+        JOptionPane.showMessageDialog(this, "Your order number is: "+idOrder+"\n"+"Please save the number to return your movie!");
         
-        
-        
-        
-        
-        
-        //return orderId;
-        //criar uma order na database -- order controller linha 21
-//        String query = "INSERT into xtra_order (id_card, date)\n" +
-//                "values (" +order.getCreditCardID()+ ", '"+ convertDateTimeToString(order.getDate()) +"'); ";
-//
-//        int orderId = executeInsert(query);
-//
-//        for(OrderLine line : order.getOrderLines()){
-//            String deductMovie = "UPDATE xtra_movie set amount = amount-1 where id = " +line.getMovieId() +";";
-//            String queryOrderLine = "INSERT into xtra_order_line (order_id,movie_id)\n" +
-//                    "values (" +orderId+ ", "+ line.getMovieId()+"); ";
-//
-//            executeInsert(queryOrderLine);
-//            executeUpdate(deductMovie);
-//        }
-//
-//      return orderId;
-//    }
-//query = insert into order payment iID
-//Database linha 63 - 68 - pegar a order criada
-//        int result = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-//        ResultSet rs= stmt.getGeneratedKeys();
-//            if (rs.next())
-//            {
-//              result = rs.getInt(1);  //salvar este int
-//            }
-//adicionar os filmes na orderitem com a order id = a criada;
-//for (int i = 0 ;i <cartmovies.length ;i++){
-//query = insert into orderitem idmovie orderid  movies[i].getid
-//excute(query);
-//}
-//try { // Connect to the DB and insert data into my database
-//    Connection con = Connect.getConnection();
-//    String sql = "INSERT into User (email, cardNumber, validCard)"
-//            + "values(?,?,?)";
-//    // to excute the Database command without any parameters
-//    PreparedStatement ps = con.prepareStatement(sql);
-//    // inserting data to my DB
-//    ps.setString(1, emailTxt.getText());
-//    ps.setLong(2, Long.parseLong(cardNumberTxt.getText()));
-//    ps.setString(3, validDate.getText());
-//    //Executing the action
-//    ps.execute();
-//    
-//} catch (Exception e) {
-//    System.out.println(e);
-//}
-// show a joptionpane to confim the rent
-ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\card.png");
-int input = JOptionPane.showConfirmDialog(null,
-        "Thanks for your purchase! See you soon!", "PAYMENT PROCESSED",
-        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
-
-//        try { // Connect to the DB and insert data into my database
-//            Connection con = Connect.getConnection();
-//
-//            MovieModel [] movies = RentCartMovieModel.getCurrentCart().getMoviesFromCart();
-//            for (int i =0 ;i<movies.length;i++){
-//                String sql = "update Movie set statusMovie = 'u' where idMovie = "+movies[i].getIdMovie();
-//                Statement comm = con.createStatement(); // to excute the Database command without any parameters
-//            //Result
-//                comm.execute(sql);
-//            }
-//
-//           con.close();
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-
-dispose();
-
+        // show a joptionpane to confim the rent
+        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\card.png");
+        int input = JOptionPane.showConfirmDialog(null,
+                "Thanks for your purchase! See you soon!", "PAYMENT PROCESSED",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
+        new WelcomeView().setVisible(true); //show the WelcomeView when the button is clicked
+        dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
-    
-    
     
     private void cardNumberTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTxtKeyTyped
         //Accept only numbers
@@ -420,13 +325,21 @@ dispose();
     
     
     private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
-        //check if the email isValid
-//
-//        if(!email.trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
-//            throw new Exception ("Not a valid email");
-//        }
+   
     }//GEN-LAST:event_emailTxtActionPerformed
+
+    private void emailTxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxtKeyReleased
+       
+    }//GEN-LAST:event_emailTxtKeyReleased
+
+    private void emailTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTxtKeyTyped
+//         String email = emailTxt.getText().trim();
+//            if(!email.isEmpty()){
+//                    isValidEmail(email);
+//                }
+    }//GEN-LAST:event_emailTxtKeyTyped
     public void setValue(double value) {
+        //to set the total of rent
         this.total = value;
     }
     
@@ -478,7 +391,6 @@ dispose();
     private javax.swing.JLabel lblCVV;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPayment;
-    private javax.swing.JLabel lblRent;
     private javax.swing.JButton submitButton;
     private javax.swing.JTextField txtCVV;
     private javax.swing.JFormattedTextField validDate;

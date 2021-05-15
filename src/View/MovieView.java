@@ -235,8 +235,10 @@ public class MovieView extends javax.swing.JFrame {
                             result.getString("category"), 
                             result.getInt("year")));
                 }
+                //instantiate the MovieModel to Array
                 MovieModel[] movies = moviesList.toArray(new MovieModel[moviesList.size()]);
                 MoviesTableModel model = new MoviesTableModel(movies);
+                //populate the tblMovie
                 tblMovie.setModel(model);
                 tblMovie.getColumnModel().getColumn(0).setWidth(0);
                 tblMovie.getColumnModel().getColumn(0).setMinWidth(0);
@@ -281,7 +283,8 @@ public class MovieView extends javax.swing.JFrame {
         MovieControl mc = new MovieControl();
         MovieModel[] movies = mc.getAllMoviesFromDb();
         MoviesTableModel model = new MoviesTableModel(movies);
-//        MoviesTableModel model2 = new MoviesTableModel(RentCartMovieModel.getCurrentCart().getMoviesFromCart());//mostra os filmes do cart
+    //testing to show the Cart content
+    //MoviesTableModel model2 = new MoviesTableModel(RentCartMovieModel.getCurrentCart().getMoviesFromCart());
         tblMovie.setModel(model);
         tblMovie.getColumnModel().getColumn(0).setWidth(0);
         tblMovie.getColumnModel().getColumn(0).setMinWidth(0);
@@ -340,7 +343,8 @@ public class MovieView extends javax.swing.JFrame {
     private javax.swing.JTextArea txtDescription;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
-    //declaring the variables
+    
+//declaring the variables
     private int id;
     private String title;
     private String category;
@@ -371,7 +375,6 @@ private void getSelected(int idMovieSelectedRow) {
         }
     }
     
-
     private void insertSelected(String title, String category, double price) {
         try { // Connect to the DB
             Connection con = Connect.getConnection();

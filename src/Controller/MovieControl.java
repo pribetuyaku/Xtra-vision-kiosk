@@ -45,8 +45,5 @@ public class MovieControl {
       
         return movies.toArray(new MovieModel[movies.size()]);
     }
-        
-   
-    
     
 }

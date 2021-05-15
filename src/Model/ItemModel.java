@@ -15,7 +15,6 @@ public class ItemModel {
     public ItemModel() {
     }
     
-    
     public ItemModel(CategoryModel category){ //
         this.category = category;
     }
@@ -68,8 +67,4 @@ public class ItemModel {
         this.category = category;
     }
 
-
-
-    
-    
 }

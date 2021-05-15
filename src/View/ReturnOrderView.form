@@ -30,7 +30,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="lblDVDid" max="32767" attributes="0"/>
-                          <Component id="txtId" min="-2" pref="159" max="-2" attributes="0"/>
+                          <Component id="txtIdOrder" min="-2" pref="159" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       <Component id="btnBack" min="-2" max="-2" attributes="0"/>
@@ -38,7 +38,7 @@
                       <Component id="btnOk" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblReturn" min="-2" max="-2" attributes="0"/>
                       <Component id="jSeparator1" alignment="0" min="-2" pref="357" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -50,7 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="lblReturn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -61,7 +61,7 @@
                       <Component id="btnOk" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="txtId" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtIdOrder" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
@@ -69,7 +69,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblReturn">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
@@ -92,10 +92,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDVDid">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Type the ID number in DVD case:"/>
+        <Property name="text" type="java.lang.String" value="Type here your ID Order:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtId">
+    <Component class="javax.swing.JTextField" name="txtIdOrder">
     </Component>
     <Component class="javax.swing.JButton" name="btnOk">
       <Properties>

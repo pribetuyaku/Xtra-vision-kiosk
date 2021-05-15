@@ -1,23 +1,14 @@
 
 package View;
 
-import DAO.Connect;
-import Model.MovieModel;
-import Model.MoviesTableModel;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author User
+ * @author Betuyaku
  */
-public class ReturnView extends javax.swing.JFrame {
+public class ReturnOrderView extends javax.swing.JFrame {
 
     /** Creates new form ReturnPage */
-    public ReturnView() {
+    public ReturnOrderView() {
         initComponents();
     }
 
@@ -25,18 +16,18 @@ public class ReturnView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblReturn = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lblDVDid = new javax.swing.JLabel();
-        txtId = new javax.swing.JTextField();
+        txtIdOrder = new javax.swing.JTextField();
         btnOk = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("RETURN PAGE");
+        lblReturn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblReturn.setText("RETURN PAGE");
 
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBack.setText("BACK");
@@ -46,7 +37,7 @@ public class ReturnView extends javax.swing.JFrame {
             }
         });
 
-        lblDVDid.setText("Type the ID number in DVD case:");
+        lblDVDid.setText("Type here your ID Order:");
 
         btnOk.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnOk.setText("OK");
@@ -66,13 +57,13 @@ public class ReturnView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblDVDid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIdOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(66, 66, 66)
                         .addComponent(btnBack)
                         .addGap(18, 18, 18)
                         .addComponent(btnOk))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
+                        .addComponent(lblReturn)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -80,7 +71,7 @@ public class ReturnView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addComponent(lblReturn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -90,7 +81,7 @@ public class ReturnView extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnOk)
                         .addComponent(btnBack))
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdOrder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -105,7 +96,8 @@ public class ReturnView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-        new ReturnMovieView(Integer.parseInt(txtId.getText())).setVisible(true);
+        //take the number idOrder typed into the txtId
+        new ReturnMovieView(Integer.parseInt(txtIdOrder.getText())).setVisible(true);
         dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
@@ -126,21 +118,23 @@ public class ReturnView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ReturnView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnOrderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ReturnView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnOrderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ReturnView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnOrderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ReturnView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ReturnOrderView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReturnView().setVisible(true);
+                new ReturnOrderView().setVisible(true);
             }
         });
     }
@@ -148,10 +142,10 @@ public class ReturnView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOk;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblDVDid;
-    private javax.swing.JTextField txtId;
+    private javax.swing.JLabel lblReturn;
+    private javax.swing.JTextField txtIdOrder;
     // End of variables declaration//GEN-END:variables
 
 }
