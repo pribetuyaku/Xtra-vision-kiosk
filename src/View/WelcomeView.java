@@ -1,9 +1,9 @@
 
 package View;
 
+import Model.ItemModel;
 import Model.MovieModel;
 import Model.RentCartMovieModel;
-import Model.SerieModel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -20,7 +20,7 @@ public class WelcomeView extends javax.swing.JFrame {
         initComponents();
         setSize(529, 352);
         setDefaultCloseOperation(WelcomeView.EXIT_ON_CLOSE);
-        RentCartMovieModel cart = new RentCartMovieModel(new ArrayList<MovieModel>(),new ArrayList<SerieModel>());
+        RentCartMovieModel cart = new RentCartMovieModel(new ArrayList<MovieModel>());
         RentCartMovieModel.setCurrentCart(cart);
     }
 
@@ -107,18 +107,10 @@ public class WelcomeView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRentButtonActionPerformed
-        //Select the option to rent
-        String[] options = {"", "Movies", "Series"};
-        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\movie.png");
-        String ask = (String)JOptionPane.showInputDialog(null, "What do you want to rent?",
-                "RENT OPTIONS", JOptionPane.QUESTION_MESSAGE, icon, options, options[2]);
-        if(ask == "Movies"){ //if the option selected was Movies, open the MovieView
-            new MovieView().setVisible(true);
+        //Select the movie to rent
+           new MovieView().setVisible(true);
             dispose();
-        } else if (ask == "Series"){ //otherwise, open SerieView
-            new SerieView().setVisible(true);
-            dispose();
-        }
+        
 
     }//GEN-LAST:event_jRentButtonActionPerformed
 

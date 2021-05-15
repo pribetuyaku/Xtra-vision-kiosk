@@ -2,8 +2,6 @@ package View;
 
 import Controller.MovieControl;
 import DAO.Connect;
-import DAO.CategoryDAO;
-import Model.CategoryModel;
 import Model.MovieModel;
 import Model.MoviesTableModel;
 import Model.RentCartMovieModel;
@@ -13,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
 import java.util.*;
 
 /**
@@ -90,11 +87,11 @@ public class MovieView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Title", "Category", "Year"
+                "Title", "Category", "Year"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -269,14 +266,9 @@ public class MovieView extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescriptionCaretUpdate
 
     private void btnAddCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCartActionPerformed
-
+            // show the cart page using casting
             MovieModel movie = (MovieModel)tblMovie.getValueAt(tblMovie.getSelectedRow(), 0);
             RentCartMovieModel.getCurrentCart().addMovie(movie);
-            RentCartMovieModel.getCurrentCart().test();
-        // show the cart page
-//        new CartView().setVisible(true);
-        //close the SeriePage
-//        dispose();
     }//GEN-LAST:event_btnAddCartActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed

@@ -9,13 +9,12 @@ import java.util.ArrayList;
  */
 public class RentCartMovieModel {
     private static RentCartMovieModel currentCart;
-    
+    //An arraylist of movie for the cart needed, help to add and remove if needed
     private ArrayList<MovieModel>movies;
-    private ArrayList<SerieModel>series;
+  
 
-    public RentCartMovieModel(ArrayList<MovieModel> movies,ArrayList<SerieModel> series) {
+    public RentCartMovieModel(ArrayList<MovieModel> movies) {
         this.movies = movies;
-        this.series = series;
     }
 
     public static RentCartMovieModel getCurrentCart() {
@@ -25,11 +24,7 @@ public class RentCartMovieModel {
     public static void setCurrentCart(RentCartMovieModel currentCart) {
         RentCartMovieModel.currentCart = currentCart;
     }
-    
-    public SerieModel[] getSeriesFromCart(){
-        return series.toArray(new SerieModel[series.size()]);
-    }
-    
+       
     public MovieModel[] getMoviesFromCart(){
         return movies.toArray(new MovieModel[movies.size()]);
     }
@@ -37,25 +32,39 @@ public class RentCartMovieModel {
         movies.add(movie);
     }
     
-    public void addSerie(SerieModel serie){
-        series.add(serie);
+    //check if there is a movie in the cart
+    public boolean movieInCart(MovieModel movieModel){
+        boolean movieInCart = false;
+        if(movies.size()>0){
+            for (int i = 0; i<movies.size(); i++){
+                if(movies.get(i).getId()==movieModel.getId()){
+                    movieInCart = true;
+                }
+            }
+        }
+        return movieInCart;
     }
-    public void test(){
+    //add a movie (max 4) inside the cart
+    public boolean addMovieCart(MovieModel movie){
+        if(!movieInCart(movie)&& movies.size()<4 ){ 
+            this.movies.add(movie);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+       
+       public void test(){
         for (int i =0 ;i<movies.size();i++){
             System.out.println(movies.get(i).getTitle());
         }
     }
 
-    public void removeAllSeries(){
-        series.clear();
-    }
-    public void removeAllMovies() {
+    public void removeAllMovies(MovieModel movie) {
        movies.clear();
     }
-    
-    public void removeSerie(SerieModel serie){
-        series.remove(serie);
-    }
+   
     
     public void removeMovie(MovieModel movie) {
         movies.remove(movie);

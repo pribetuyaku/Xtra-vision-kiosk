@@ -1,30 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Model;
 
 import javax.swing.table.AbstractTableModel;
 
 /**
  *
- * @author User
+ * @author Betuyaku
  */
 public class CartTableModel extends AbstractTableModel {
     
-      //https://docs.oracle.com/javase/tutorial/uiswing/components/table.html#data
+    //https://docs.oracle.com/javase/tutorial/uiswing/components/table.html#data
     
     //method to get Title, Category and Year 
     
     private String[] columnNames = {"Movie","ID","Title","Category","Year"};
     private MovieModel[ ] movies;
-    
 
     public CartTableModel( MovieModel[] movies) {
         this.movies = movies;
+       
     }
-    
+
+      
     public String getColumnName(int col) {
         return columnNames[col];
     }

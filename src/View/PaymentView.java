@@ -1,30 +1,40 @@
 package View;
 
 import DAO.Connect;
+import Model.DB;
+import Model.MovieModel;
+import Model.OrderItem;
+import Model.Orders;
+import Model.RentCartMovieModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Betuyaku
  */
 public class PaymentView extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Rent
      */
     public PaymentView() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,8 +43,8 @@ public class PaymentView extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jCardNumber = new javax.swing.JLabel();
         cardNumberTxt = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        totalRent = new javax.swing.JLabel();
+        lblBill = new javax.swing.JLabel();
+        lblRent = new javax.swing.JLabel();
         lblCVV = new javax.swing.JLabel();
         txtCVV = new javax.swing.JTextField();
         lblDate = new javax.swing.JLabel();
@@ -64,10 +74,10 @@ public class PaymentView extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("Your Bill:");
+        lblBill.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblBill.setText("Your Bill:");
 
-        totalRent.setText("€ ");
+        lblRent.setText("€ ");
 
         lblCVV.setText("CVV:");
 
@@ -89,6 +99,12 @@ public class PaymentView extends javax.swing.JFrame {
             }
         });
 
+        emailTxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTxtActionPerformed(evt);
+            }
+        });
+
         jEmailLabel.setText("Your receipt by email:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -104,9 +120,9 @@ public class PaymentView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(lblBill)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(totalRent, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblRent, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jCardNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -140,8 +156,8 @@ public class PaymentView extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(totalRent))
+                    .addComponent(lblBill)
+                    .addComponent(lblRent))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -166,28 +182,28 @@ public class PaymentView extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
- 
+    
+    
     private void cardNumberTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cardNumberTxtActionPerformed
-
+    
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         new CartView().setVisible(true); //show the CartView when the button is clicked
         dispose(); //close the current screen
     }//GEN-LAST:event_backButtonActionPerformed
     
     //method to valid the email
- 
+    
     public static boolean isValidEmail(String email){
-       boolean isEmailValid = false;
-       if (email!= null && email.length() > 0){
-           String checker = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
-           Pattern pattern = Pattern.compile(checker, Pattern.CASE_INSENSITIVE);
-           Matcher matcher = pattern.matcher(email);
-           if (matcher.matches()){
-               isEmailValid = true;
-           }
+        boolean isEmailValid = false;
+        if (email!= null && email.length() > 0){
+            String checker = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
+            Pattern pattern = Pattern.compile(checker, Pattern.CASE_INSENSITIVE);
+            Matcher matcher = pattern.matcher(email);
+            if (matcher.matches()){
+                isEmailValid = true;
+            }
         }
         return isEmailValid;
     }
@@ -198,7 +214,7 @@ public class PaymentView extends javax.swing.JFrame {
             Connection con = Connect.getConnection();
             String sql = "SELECT * FROM Priscilla_2019217.cart;";
             Statement command = con.createStatement(); // to excute the Database command without any parameters
-            //Result 
+            //Result
             ResultSet result = command.executeQuery(sql);
             //Show the search resuts
             showTotal();
@@ -210,83 +226,217 @@ public class PaymentView extends javax.swing.JFrame {
         try { // Connect to the DB
             Connection con = Connect.getConnection();
             String sql = "SELECT price FROM Priscilla_2019217.cart;";
-
+            
             Statement command = con.createStatement(); // to excute the Database command without any parameters
-            //Result 
+            //Result
             ResultSet result = command.executeQuery(sql);
             //Storing thw result of price into the variable total, and count when adding a new price into the table.
             while (result.next()) {
                 total += result.getDouble("price");
             }
             //show the calculation of the price
-            totalRent.setText(Double.toString(total));
+            double total = RentCartMovieModel.getCurrentCart().getSize() * 2.99;
+            lblRent.setText("€ "+total);
         } catch (Exception e) {
             System.out.println(e);
         }
     }
     
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        //pegar os filmes do cart, e salva numa array 
-        //criar uma order na database -- order controller linha 21
-        //query = insert into order payment iID
-        //Database linha 63 - 68 - pegar a order criada
-//        int result = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
-//        ResultSet rs= stmt.getGeneratedKeys();
-//            if (rs.next()) 
-//            {
-//              result = rs.getInt(1);  //salvar este int
-//            }    
-        //adicionar os filmes na orderitem com a order id = a criada;
-        //for (int i = 0 ;i <cartmovies.length ;i++){
-        //query = insert into orderitem idmovie orderid  movies[i].getid
-            //excute(query);
-         //}
-        try { // Connect to the DB and insert data into my database
+    int getCardId(String cardnumber, String email,String valid){
+        int cardId=0;
+        boolean isThere = false;
+        try {
             Connection con = Connect.getConnection();
-            String sql = "INSERT into User (email, cardNumber, validCard)"
-                    + "values(?,?,?)";
-            // to excute the Database command without any parameters
-            PreparedStatement ps = con.prepareStatement(sql); 
-            // inserting data to my DB
-            ps.setString(1, emailTxt.getText());
-            ps.setLong(2, Long.parseLong(cardNumberTxt.getText()));
-            ps.setString(3, validDate.getText());
-            //Executing the action
-            ps.execute();
-
+            //SQL query
+            String query = "select count(*) from User where cardNumber = "+cardnumber ;
+            Statement comm = con.createStatement(); // to excute the Database command without any parameters
+            //Result
+            ResultSet rs = comm.executeQuery(query);
+            if(rs.next()){
+                isThere = rs.getInt(1)>0;
+            }
+            if(isThere==true){
+                query = "SELECT idUser from User WHERE cardNumber = "+ cardnumber;
+                rs = comm.executeQuery(query);
+                if(rs.next()){
+                    cardId = rs.getInt(1);
+                }
+                comm.close();
+                con.close();
+            }
+            
+            else{
+                Connection conn = Connect.getConnection();
+                Statement stmt = conn.createStatement();
+                String queryInsert = "insert into User (email,cardNumber,validCard) values('"+email+"','"+cardnumber+"','"+valid+"');";
+                cardId = stmt.executeUpdate(queryInsert,Statement.RETURN_GENERATED_KEYS);
+                ResultSet rs1 = stmt.getGeneratedKeys();
+                if(rs1.next()){
+                    cardId = rs1.getInt(1);
+                }
+                
+            }
+            
+            comm.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-        // show a joptionpane to confim the rent
-        ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\card.png");
-        int input = JOptionPane.showConfirmDialog(null, 
-                "Thanks for your purchase! See you soon!", "PAYMENT PROCESSED", 
-                JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
-        dispose();
+        return cardId;
+    }
+    
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        int cardId = getCardId(cardNumberTxt.getText(),emailTxt.getText(),validDate.getText());
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        df.format(date);
+        Orders order = new Orders(cardNumberTxt.getText(),date);
+        MovieModel[] movies = RentCartMovieModel.getCurrentCart().getMoviesFromCart();
+        order.addMovies(movies);
+        int idOrder=0;
+        try {
+            Connection con = Connect.getConnection();
+            //SQL query
+            String query = "INSERT into Priscilla_2019217.Order (paymentId)\n" +
+                    "values (" +cardId+ "); ";
+            Statement comm = con.createStatement(); // to excute the Database command without any parameters
+            //Result
+            comm.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = comm.getGeneratedKeys();
+            if(rs.next()){
+                idOrder = rs.getInt(1);
+            }
+            comm.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            Connection con = Connect.getConnection();
+            Statement comm = con.createStatement();
+            
+            for(OrderItem item :order.getOrders()){
+               String query = "INSERT into OrderItem (OrderId,OrderMovieId) " +
+                    "values (" +idOrder+ ", "+ item.getIdMovie()+"); ";
+               String queryStatus ="update Movie set statusMovie = 'u' where idMovie = "+item.getIdMovie();
+               comm.executeUpdate(query);
+               comm.execute(queryStatus);
+            }
+            
+            comm.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        JOptionPane.showMessageDialog(this, "your order number is: "+idOrder);
         
-    }//GEN-LAST:event_submitButtonActionPerformed
+        
+        
+        
+        
+        
+        
+        //return orderId;
+        //criar uma order na database -- order controller linha 21
+//        String query = "INSERT into xtra_order (id_card, date)\n" +
+//                "values (" +order.getCreditCardID()+ ", '"+ convertDateTimeToString(order.getDate()) +"'); ";
+//
+//        int orderId = executeInsert(query);
+//
+//        for(OrderLine line : order.getOrderLines()){
+//            String deductMovie = "UPDATE xtra_movie set amount = amount-1 where id = " +line.getMovieId() +";";
+//            String queryOrderLine = "INSERT into xtra_order_line (order_id,movie_id)\n" +
+//                    "values (" +orderId+ ", "+ line.getMovieId()+"); ";
+//
+//            executeInsert(queryOrderLine);
+//            executeUpdate(deductMovie);
+//        }
+//
+//      return orderId;
+//    }
+//query = insert into order payment iID
+//Database linha 63 - 68 - pegar a order criada
+//        int result = stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+//        ResultSet rs= stmt.getGeneratedKeys();
+//            if (rs.next())
+//            {
+//              result = rs.getInt(1);  //salvar este int
+//            }
+//adicionar os filmes na orderitem com a order id = a criada;
+//for (int i = 0 ;i <cartmovies.length ;i++){
+//query = insert into orderitem idmovie orderid  movies[i].getid
+//excute(query);
+//}
+//try { // Connect to the DB and insert data into my database
+//    Connection con = Connect.getConnection();
+//    String sql = "INSERT into User (email, cardNumber, validCard)"
+//            + "values(?,?,?)";
+//    // to excute the Database command without any parameters
+//    PreparedStatement ps = con.prepareStatement(sql);
+//    // inserting data to my DB
+//    ps.setString(1, emailTxt.getText());
+//    ps.setLong(2, Long.parseLong(cardNumberTxt.getText()));
+//    ps.setString(3, validDate.getText());
+//    //Executing the action
+//    ps.execute();
+//    
+//} catch (Exception e) {
+//    System.out.println(e);
+//}
+// show a joptionpane to confim the rent
+ImageIcon icon = new ImageIcon("src\\View\\images\\icons\\card.png");
+int input = JOptionPane.showConfirmDialog(null,
+        "Thanks for your purchase! See you soon!", "PAYMENT PROCESSED",
+        JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,icon);
 
-   
+//        try { // Connect to the DB and insert data into my database
+//            Connection con = Connect.getConnection();
+//
+//            MovieModel [] movies = RentCartMovieModel.getCurrentCart().getMoviesFromCart();
+//            for (int i =0 ;i<movies.length;i++){
+//                String sql = "update Movie set statusMovie = 'u' where idMovie = "+movies[i].getIdMovie();
+//                Statement comm = con.createStatement(); // to excute the Database command without any parameters
+//            //Result
+//                comm.execute(sql);
+//            }
+//
+//           con.close();
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+
+dispose();
+
+    }//GEN-LAST:event_submitButtonActionPerformed
+    
+    
+    
     private void cardNumberTxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTxtKeyTyped
         //Accept only numbers
-                String caracteres="0987654321";
-                //if the character in this event is not on the list 
-                if(!caracteres.contains(evt.getKeyChar()+"")){
-                evt.consume();
-                } //add this property to delete this event 
-                
+        String caracteres="0123456789";
+        //if the character in this event is not on the list
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        } 
     }//GEN-LAST:event_cardNumberTxtKeyTyped
-        public void setValue(double value) {
+    
+    
+    private void emailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTxtActionPerformed
+        //check if the email isValid
+//
+//        if(!email.trim().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")){
+//            throw new Exception ("Not a valid email");
+//        }
+    }//GEN-LAST:event_emailTxtActionPerformed
+    public void setValue(double value) {
         this.total = value;
     }
-         
+    
     //main method
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -307,7 +457,7 @@ public class PaymentView extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -322,16 +472,16 @@ public class PaymentView extends javax.swing.JFrame {
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel jCardNumber;
     private javax.swing.JLabel jEmailLabel;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblBill;
     private javax.swing.JLabel lblCVV;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPayment;
+    private javax.swing.JLabel lblRent;
     private javax.swing.JButton submitButton;
-    private javax.swing.JLabel totalRent;
     private javax.swing.JTextField txtCVV;
     private javax.swing.JFormattedTextField validDate;
     // End of variables declaration//GEN-END:variables
-
+    
 }

@@ -35,13 +35,11 @@ public class CartView extends javax.swing.JFrame {
 
         jCartLabel = new javax.swing.JLabel();
         homeButton = new javax.swing.JButton();
-        backButtonSerie = new javax.swing.JButton();
-        paymentButton = new javax.swing.JButton();
+        btnPay = new javax.swing.JButton();
         emptyCartButton = new javax.swing.JButton();
-        jTotalLabel = new javax.swing.JLabel();
-        jEuroLabel = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableCart = new javax.swing.JTable();
+        tblCartView = new javax.swing.JTable();
         BackToMovie = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
@@ -64,17 +62,10 @@ public class CartView extends javax.swing.JFrame {
             }
         });
 
-        backButtonSerie.setText("BACK to Serie");
-        backButtonSerie.addActionListener(new java.awt.event.ActionListener() {
+        btnPay.setText("PAY");
+        btnPay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonSerieActionPerformed(evt);
-            }
-        });
-
-        paymentButton.setText("PAY");
-        paymentButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paymentButtonActionPerformed(evt);
+                btnPayActionPerformed(evt);
             }
         });
 
@@ -85,11 +76,9 @@ public class CartView extends javax.swing.JFrame {
             }
         });
 
-        jTotalLabel.setText("Total:");
+        lblTotal.setText("Total:");
 
-        jEuroLabel.setText("€");
-
-        jTableCart.setModel(new javax.swing.table.DefaultTableModel(
+        tblCartView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -105,7 +94,7 @@ public class CartView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTableCart);
+        jScrollPane1.setViewportView(tblCartView);
 
         BackToMovie.setText("BACK To Movie");
         BackToMovie.addActionListener(new java.awt.event.ActionListener() {
@@ -130,19 +119,14 @@ public class CartView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(backButtonSerie)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BackToMovie)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTotalLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jEuroLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblTotal)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(emptyCartButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(paymentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(btnPay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -160,15 +144,11 @@ public class CartView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(emptyCartButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(paymentButton)))
+                        .addComponent(btnPay)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTotalLabel)
-                        .addComponent(jEuroLabel))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(backButtonSerie)
-                        .addComponent(BackToMovie)))
+                    .addComponent(lblTotal)
+                    .addComponent(BackToMovie))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -176,17 +156,12 @@ public class CartView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonSerieActionPerformed
-        new SerieView().setVisible(true);//show the SerieView when the button is clicked
-        dispose();//close the current screen
-    }//GEN-LAST:event_backButtonSerieActionPerformed
-
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         new WelcomeView().setVisible(true); //show the WelcomeView when the button is clicked
         dispose(); //close the current screen
     }//GEN-LAST:event_homeButtonActionPerformed
 
-    private void paymentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentButtonActionPerformed
+    private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
         PaymentView pay = new PaymentView();
 
         System.out.println(total);
@@ -196,7 +171,7 @@ public class CartView extends javax.swing.JFrame {
         pay.setValue(total);
         //Closing the current window
         dispose();
-    }//GEN-LAST:event_paymentButtonActionPerformed
+    }//GEN-LAST:event_btnPayActionPerformed
 
     private void emptyCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emptyCartButtonActionPerformed
         // show a joptionpane dialog using showConfirmDialog
@@ -209,7 +184,7 @@ public class CartView extends javax.swing.JFrame {
         } 
         
 //        RentCartMovieModel.getCurrentCart().removeAllMovies();
-    MovieModel movie = null;
+        MovieModel movie = null;
         RentCartMovieModel.getCurrentCart().removeMovie(movie);
     }//GEN-LAST:event_emptyCartButtonActionPerformed
 
@@ -264,7 +239,7 @@ public class CartView extends javax.swing.JFrame {
             ResultSet result = command.executeQuery(sql);
             //Show the search resuts
             DefaultTableModel model;
-            model = (DefaultTableModel) jTableCart.getModel();
+            model = (DefaultTableModel) tblCartView.getModel();
             model.setNumRows(0);
             while (result.next()) {
                 model.addRow(new Object[]{
@@ -272,7 +247,7 @@ public class CartView extends javax.swing.JFrame {
                     result.getString("category"),
                     result.getDouble("price"),});
             }
-            showTotal();
+            showTotalCart();
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -282,65 +257,36 @@ public class CartView extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BackToMovie;
-    private javax.swing.JButton backButtonSerie;
+    private javax.swing.JButton btnPay;
     private javax.swing.JButton emptyCartButton;
     private javax.swing.JButton homeButton;
     private javax.swing.JLabel jCartLabel;
-    private javax.swing.JLabel jEuroLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTableCart;
-    private javax.swing.JLabel jTotalLabel;
-    private javax.swing.JButton paymentButton;
+    private javax.swing.JLabel lblTotal;
+    private javax.swing.JTable tblCartView;
     // End of variables declaration//GEN-END:variables
 
-private void showTotal() {
+private void showTotalCart() {
      double total = RentCartMovieModel.getCurrentCart().getSize() * 2.99;
-     jTotalLabel.setText("€ "+total);
-//        try { // Connect to the DB
-//            Connection con = Connect.getConnection();
-//            String sql = "SELECT price FROM Priscilla_2019217.cart;";
-//
-//            Statement command = con.createStatement(); // to excute the Database command without any parameters
-//            //Result 
-//            ResultSet result = command.executeQuery(sql);
-//            //Storing thw result of price into the variable total, and count when adding a new price into the table.
-//            while (result.next()) {
-//                total += result.getDouble("price");
-//            }
-//            //show the calculation of the price
-//            jEuroLabel.setText(Double.toString(total));
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
+     lblTotal.setText("€ "+total);
+
     }
   private void emptyCart() {
-        try {
-            //open the connection
-            Connection con = Connect.getConnection();
-            //SQL query delet
-            String sql = "DELETE FROM cart";
-            // to excute the Database command without any parameters
-            PreparedStatement ps = con.prepareStatement(sql);
-            //executing
-            ps.execute();
-            showSelecteds();
-            //deleting the value showed
-            jEuroLabel.setText(Double.toString(0.00));
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    // show the cart page using casting
+       MovieModel movie = (MovieModel)tblCartView.getValueAt(tblCartView.getSelectedRow(), 0);
+       RentCartMovieModel.getCurrentCart().removeAllMovies(movie);
     }
 
     private void showCartMovies() {
         CartTableModel model = new CartTableModel(RentCartMovieModel.getCurrentCart().getMoviesFromCart());
-        jTableCart.setModel(model);
-        jTableCart.setModel(model);
-                jTableCart.getColumnModel().getColumn(0).setWidth(0);
-                jTableCart.getColumnModel().getColumn(0).setMinWidth(0);
-                jTableCart.getColumnModel().getColumn(0).setMaxWidth(0);
+        tblCartView.setModel(model);
+        tblCartView.setModel(model);
+        tblCartView.getColumnModel().getColumn(0).setWidth(0);
+        tblCartView.getColumnModel().getColumn(0).setMinWidth(0);
+        tblCartView.getColumnModel().getColumn(0).setMaxWidth(0);
         
-        jTableCart.repaint();
+        tblCartView.repaint();
     }
 
 }

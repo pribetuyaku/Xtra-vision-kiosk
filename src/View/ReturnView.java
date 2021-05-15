@@ -2,9 +2,12 @@
 package View;
 
 import DAO.Connect;
+import Model.MovieModel;
+import Model.MoviesTableModel;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -102,30 +105,8 @@ public class ReturnView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-    
-        //Connect to the DB
-        try {
-             Connection con = Connect.getConnection();
-        String sql = "SELECT Movie.title, Movie.year, Category.name as category, "
-                    + "Category.type FROM Movie " +
-                    "inner join Category on Movie.idCategory = Category.id";
-        Statement comm = con.createStatement(); // to excute the Database command without any parameters 
-            //Result 
-            ResultSet result = comm.executeQuery(sql);
-            //Show the search resuts View --->controller ---->database____controller ---->view
-            DefaultTableModel model;
-            model = (DefaultTableModel) tblMovie.getModel();
-            model.setNumRows(0);
-                while(result.next()){
-                    model.addRow(new Object[]{
-                    result.getString("Title"),
-                    result.getString("Category"),
-                    result.getString("Year"),
-                    });
-                }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        new ReturnMovieView(Integer.parseInt(txtId.getText())).setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnOkActionPerformed
 
     /**
